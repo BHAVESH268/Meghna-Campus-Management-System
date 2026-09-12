@@ -1,0 +1,1221 @@
+/* =====================================================
+   SVET | CAMPUS FACILITIES
+   CLEAN DESIGN
+   NO BACKGROUND ANIMATION
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #ffffff;
+    color: #111827;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    width: min(1400px, 92%);
+
+    height: 82px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #0ea5e9,
+        #2563eb
+    );
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+}
+
+.logo h2 {
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #111827;
+}
+
+.logo span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #64748b;
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+
+    display: block;
+
+    padding: 10px 14px;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: #2563eb;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2563eb;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 60%;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-btn {
+    padding: 11px 22px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.30);
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.menu-btn {
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+    position: fixed;
+
+    top: 0;
+    right: -100%;
+
+    width: min(330px, 85%);
+
+    height: 100vh;
+
+    z-index: 2000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 90px 30px 30px;
+
+    background: #ffffff;
+
+    box-shadow:
+        -10px 0 40px rgba(15, 23, 42, 0.15);
+
+    transition: 0.4s ease;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    padding: 18px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #334155;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: #2563eb;
+
+    padding-left: 8px;
+}
+
+.close-menu {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 140px 6% 100px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        180deg,
+        #f8fbff 0%,
+        #ffffff 100%
+    );
+}
+
+.hero-content {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   HERO BADGE
+===================================================== */
+
+.hero-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 17px;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 50px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+}
+
+
+/* =====================================================
+   HERO SMALL TEXT
+===================================================== */
+
+.hero-small {
+    margin-top: 30px;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero h1 {
+    margin-top: 18px;
+
+    font-size: clamp(45px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    color: #0f172a;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+===================================================== */
+
+.hero-description {
+    max-width: 680px;
+
+    margin: 28px auto 0;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   EXPLORE BUTTON
+===================================================== */
+
+.explore-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 35px;
+
+    padding: 15px 24px;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.20);
+
+    transition: 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-3px);
+
+    background: #1d4ed8;
+
+    box-shadow:
+        0 15px 30px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.scroll-indicator i {
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+.section {
+    width: min(1400px, 92%);
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   FACILITIES SECTION
+===================================================== */
+
+.facilities-section {
+    padding: 120px 0;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+    max-width: 750px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.section-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-top: 15px;
+
+    font-size: clamp(35px, 5vw, 58px);
+
+    line-height: 1.1;
+
+    color: #0f172a;
+}
+
+.section-heading h2 span {
+    color: #2563eb;
+}
+
+.section-heading p {
+    margin-top: 20px;
+
+    color: #64748b;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   FACILITY GRID
+===================================================== */
+
+.facility-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   FACILITY CARD
+===================================================== */
+
+.facility-card {
+    position: relative;
+
+    min-height: 290px;
+
+    padding: 38px 32px;
+
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 18px 40px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =====================================================
+   FACILITY NUMBER
+===================================================== */
+
+.facility-number {
+    position: absolute;
+
+    top: 22px;
+    right: 25px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   FACILITY ICON
+===================================================== */
+
+.facility-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+    border-radius: 15px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 24px;
+
+    transition: 0.3s ease;
+}
+
+.facility-card:hover .facility-icon {
+    transform: scale(1.06);
+
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   FACILITY CARD TEXT
+===================================================== */
+
+.facility-card h3 {
+    margin-bottom: 14px;
+
+    color: #0f172a;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+.facility-card p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   EXPERIENCE SECTION
+===================================================== */
+
+.experience-section {
+    width: min(1400px, 92%);
+
+    margin: 40px auto 120px;
+
+    padding: 70px 60px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1.2fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 25px;
+
+    background: #f8fafc;
+}
+
+
+/* =====================================================
+   EXPERIENCE CONTENT
+===================================================== */
+
+.experience-content h2 {
+    margin-top: 18px;
+
+    font-size: clamp(35px, 4vw, 52px);
+
+    line-height: 1.1;
+
+    color: #0f172a;
+}
+
+.experience-content h2 span {
+    color: #2563eb;
+}
+
+.experience-content p {
+    margin-top: 20px;
+
+    max-width: 520px;
+
+    color: #64748b;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   EXPERIENCE STATS
+===================================================== */
+
+.experience-stats {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.experience-stat {
+    min-height: 145px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    transition: 0.3s ease;
+}
+
+.experience-stat:hover {
+    transform: translateY(-5px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.08);
+}
+
+.experience-stat i {
+    margin-bottom: 15px;
+
+    color: #2563eb;
+
+    font-size: 22px;
+}
+
+.experience-stat strong {
+    color: #0f172a;
+
+    font-size: 18px;
+}
+
+.experience-stat span {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    padding: 70px 6% 25px;
+
+    border-top: 1px solid #e2e8f0;
+
+    background: #0f172a;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   FOOTER CONTENT
+===================================================== */
+
+.footer-content {
+    width: min(1400px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+
+/* =====================================================
+   FOOTER BRAND
+===================================================== */
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.footer-logo h2 {
+    font-size: 22px;
+}
+
+.footer-logo span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+.footer-brand > p {
+    margin-top: 20px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.footer-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #60a5fa;
+
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   FOOTER CONTACT
+===================================================== */
+
+.footer-contact {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.footer-contact p {
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.footer-contact i {
+    width: 20px;
+
+    margin-right: 6px;
+
+    color: #60a5fa;
+}
+
+
+/* =====================================================
+   FOOTER LINE
+===================================================== */
+
+.footer-line {
+    width: min(1400px, 100%);
+
+    height: 1px;
+
+    margin: 45px auto 20px;
+
+    background: #334155;
+}
+
+.copyright {
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .nav-links a {
+        padding: 10px 9px;
+
+        font-size: 13px;
+    }
+
+
+    .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .experience-section {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 72px;
+    }
+
+
+    .nav-links,
+    .navbar > .login-btn {
+        display: none;
+    }
+
+
+    .menu-btn {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .hero {
+        min-height: 90vh;
+
+        padding: 120px 6% 100px;
+    }
+
+
+    .hero-small {
+        letter-spacing: 2px;
+
+        font-size: 9px;
+    }
+
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    .facilities-section {
+        padding: 80px 0;
+    }
+
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .facility-grid {
+        grid-template-columns: 1fr;
+
+        gap: 17px;
+    }
+
+
+    .facility-card {
+        min-height: auto;
+
+        padding: 30px 25px;
+    }
+
+
+    .experience-section {
+        width: 88%;
+
+        padding: 45px 25px;
+
+        gap: 35px;
+    }
+
+
+    .experience-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding-left: 5%;
+
+        padding-right: 5%;
+    }
+
+
+    .hero-badge {
+        font-size: 9px;
+
+        padding: 8px 13px;
+    }
+
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+
+    .scroll-indicator {
+        display: none;
+    }
+
+
+    .experience-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .experience-stat {
+        min-height: 120px;
+    }
+
+
+    .footer {
+        padding-left: 7%;
+
+        padding-right: 7%;
+    }
+
+}
+/* =====================================================
+   SVET LOGO IMAGE
+===================================================== */
+
+.logo-icon {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    flex-shrink: 0;
+
+    border-radius: 16px;
+
+    background: #15BCDF;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 16px;
+}

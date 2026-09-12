@@ -1,0 +1,245 @@
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:url("../../../../../Downloads/ChatGPT Image Jul 27, 2026, 01_43_07 PM.png") no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* Light Overlay */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.08);
+    z-index:-1;
+}
+
+.container{
+    width:100%;
+    max-width:1300px;
+}
+
+.login-box{
+    display:flex;
+    justify-content:space-between;
+    overflow:hidden;
+
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+}
+
+/* Left Side */
+
+.left{
+    width:50%;
+    padding:50px;
+    color:#fff;
+    background:rgba(0,0,0,.10);
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+}
+
+.college-name h2{
+    font-size:26px;
+}
+
+.college-name p{
+    font-size:14px;
+}
+
+.left h1{
+    margin-top:90px;
+    font-size:55px;
+}
+
+.left>p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+/* Right Side */
+
+.right{
+    width:50%;
+    background:#fff;
+    padding:50px;
+}
+
+.right h2{
+    font-size:34px;
+    color:#003366;
+}
+
+.right p{
+    margin:10px 0 30px;
+    color:#555;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+    font-size:16px;
+}
+
+.input-box input:focus{
+    border-color:#0077ff;
+}
+
+select{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#0056b3;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#003b80;
+}
+
+.right a{
+    display:block;
+    margin-top:20px;
+    text-align:center;
+    text-decoration:none;
+    color:#0056b3;
+}
+
+/* Quick Access */
+
+.quick-access{
+    margin-top:35px;
+    background:rgba(255,255,255,.15);
+    border-radius:20px;
+    padding:30px;
+}
+
+.quick-access h3{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.quick-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.quick-card{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.quick-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+.quick-card i{
+    font-size:40px;
+    color:#0056b3;
+    margin-bottom:15px;
+}
+
+.quick-card h4{
+    margin-bottom:10px;
+}
+
+.quick-card p{
+    color:#666;
+    margin-bottom:20px;
+}
+
+.quick-card a{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:8px;
+    background:#0056b3;
+    color:#fff;
+    text-decoration:none;
+}
+
+.quick-card a:hover{
+    background:#003b80;
+}
+
+@media(max-width:900px){
+
+.login-box{
+    flex-direction:column;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+.left{
+    text-align:center;
+}
+
+.navbar{
+    justify-content:center;
+}
+
+.left h1{
+    margin-top:40px;
+    font-size:40px;
+}
+
+}

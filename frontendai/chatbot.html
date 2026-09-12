@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SVKPI AI Assistant</title>
+
+    <link rel="stylesheet" href="cssai/chatbot.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+               <img src="file:///C:/Users/HP/Downloads/svkpie%20logo.jpeg" alt="SVKPI Logo">
+                </div>
+
+                <div>
+                    <h2>SVKPI AI</h2>
+                    <span>Campus Copilot</span>
+                </div>
+
+            </div>
+
+            <button class="new-chat-btn" id="newChatBtn">
+                <i class="fa-solid fa-plus"></i>
+                New Chat
+            </button>
+
+            <div class="sidebar-section">
+                <span class="section-title">QUICK ACCESS</span>
+
+                <button class="side-action" data-question="Tell me about SVKPI">
+                    <i class="fa-solid fa-building-columns"></i>
+                    College Information
+                </button>
+
+                <button class="side-action" data-question="Tell me about courses available at SVKPI">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Courses
+                </button>
+
+                <button class="side-action" data-question="Tell me about admission">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Admissions
+                </button>
+
+                <button class="side-action" data-question="What facilities are available on campus?">
+                    <i class="fa-solid fa-school"></i>
+                    Campus Facilities
+                </button>
+
+                <button class="side-action" data-question="Help me with my computer engineering studies">
+                    <i class="fa-solid fa-book-open"></i>
+                    Study Help
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="secure-badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>AI Assistant</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="chat-container">
+
+            <header class="chat-header">
+
+                <div class="header-left">
+
+                    <button class="menu-btn" id="menuBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="ai-avatar">
+                      <img src="file:///C:/Users/HP/Downloads/svkpie%20logo.jpeg" alt="SVKPI Logo">
+                        <span class="online-dot"></span>
+                    </div>
+
+                    <div class="header-info">
+                        <h1>SVKPI AI Assistant</h1>
+                        <span>
+                            <span class="status-dot"></span>
+                            Online • Ready to help
+                        </span>
+                    </div>
+
+                </div>
+
+                <button class="header-btn" id="clearBtn" title="Clear conversation">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+
+            </header>
+
+            <section class="chat-box" id="chatBox">
+
+                <div class="welcome-screen" id="welcomeScreen">
+
+                    <div class="welcome-icon">
+                        <img src="file:///C:/Users/HP/Downloads/svkpie%20logo.jpeg" alt="SVKPI Logo">
+                    </div>
+
+                    <h2>Hi! I'm SVKPI AI 👋</h2>
+
+                    <p>
+                        Your intelligent campus assistant.
+                        Ask me about studies, college information,
+                        programming, assignments and more.
+                    </p>
+
+                    <div class="quick-grid">
+
+                        <button class="quick-card"
+                            data-question="Tell me about SVKPI">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <span>College Info</span>
+                        </button>
+
+                        <button class="quick-card"
+                            data-question="What courses are available at SVKPI?">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Courses</span>
+                        </button>
+
+                        <button class="quick-card"
+                            data-question="Tell me about the admission process">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>Admissions</span>
+                        </button>
+
+                        <button class="quick-card"
+                            data-question="Help me understand a programming topic">
+                            <i class="fa-solid fa-code"></i>
+                            <span>Study Help</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer class="input-section">
+
+                <div class="suggestions">
+
+                    <button data-question="Explain this topic simply">
+                        💡 Explain simply
+                    </button>
+
+                    <button data-question="Give me study tips">
+                        📚 Study tips
+                    </button>
+
+                    <button data-question="Help me with programming">
+                        💻 Programming
+                    </button>
+
+                </div>
+
+                <div class="input-wrapper">
+
+                    <button class="voice-btn" id="voiceBtn" title="Voice input">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+
+                    <input
+                        type="text"
+                        id="userInput"
+                        autocomplete="off"
+                        placeholder="Ask SVKPI AI anything..."
+                    >
+
+                    <button class="send-btn" id="sendBtn" title="Send">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+                <div class="input-note">
+                    <i class="fa-solid fa-lock"></i>
+                    SVKPI AI can make mistakes. Verify important information.
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="jsai/chatbot.js"></script>
+
+</body>
+
+</html>

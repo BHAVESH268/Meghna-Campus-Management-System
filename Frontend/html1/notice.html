@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVKPI Notice Board</title>
+
+   <link rel="stylesheet" href="../css1/notice.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-bullhorn"></i>
+            <div>
+                <h2>SVKPI Notice Board</h2>
+                <p>Shree Vasudevbhai & Kantibhai Patel Institute of Engineering</p>
+            </div>
+        </div>
+        <a href="login.html" class="home-btn">
+            <i class="fa-solid fa-house"></i>
+            Back to Home
+        </a>
+    </header>
+    <section class="search-section">
+        <input type="text"
+               id="searchInput"
+               placeholder="Search Notice...">
+    </section>
+    <section class="category">
+        <button class="active" onclick="filterNotice('all')">
+            All
+        </button>
+        <button onclick="filterNotice('gtu')">
+            GTU
+        </button>
+        <button onclick="filterNotice('exam')">
+            Exam
+        </button>
+        <button onclick="filterNotice('event')">
+            Events
+        </button>
+    </section>
+    <section class="notice-container">
+        <div class="notice-card gtu">
+            <span class="badge new">NEW</span>
+            <h3>
+                GTU Semester Circular
+            </h3>
+            <p class="date">
+                <i class="fa-solid fa-calendar-days"></i>
+                29 July 2026
+            </p>
+            <p>
+                GTU has released the latest semester examination circular for all students.
+            </p>
+            <div class="btn-group">
+                <a href="#">
+                    <i class="fa-solid fa-eye"></i>
+                    View PDF
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+        <div class="notice-card exam">
+            <span class="badge important">
+                IMPORTANT
+            </span>
+            <h3>
+                Internal Viva Schedule
+            </h3>
+            <p class="date">
+                <i class="fa-solid fa-calendar-days"></i>
+                28 July 2026
+            </p>
+            <p>
+                Department has announced the Internal Viva schedule for all Diploma students.
+            </p>
+            <div class="btn-group">
+                <a href="#">
+                    <i class="fa-solid fa-eye"></i>
+                    View PDF
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+        <div class="notice-card event">
+            <span class="badge event-badge">
+                EVENT
+            </span>
+            <h3>
+                Campus Placement Drive
+            </h3>
+            <p class="date">
+                <i class="fa-solid fa-calendar-days"></i>
+                25 July 2026
+            </p>
+            <p>
+                Registration started for Campus Placement Drive.
+            </p>
+            <div class="btn-group">
+                <a href="#">
+                    <i class="fa-solid fa-eye"></i>
+                    View PDF
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+        <div class="notice-card exam">
+            <span class="badge new">
+                NEW
+            </span>
+            <h3>
+                Practical Examination
+            </h3>
+            <p class="date">
+                <i class="fa-solid fa-calendar-days"></i>
+                22 July 2026
+            </p>
+            <p>
+                Practical examination timetable has been published.
+            </p>
+            <div class="btn-group">
+                <a href="#">
+                    <i class="fa-solid fa-eye"></i>
+                    View PDF
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </section>
+   <script src="../jsnotice/notice.js"></script>
+</body>
+</html>

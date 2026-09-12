@@ -1,0 +1,2758 @@
+/* =========================================================
+   SVKPI AI ASSISTANT
+   FUTURISTIC CAMPUS AI UI
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #3b82f6;
+    --blue2: #2563eb;
+    --purple: #8b5cf6;
+    --cyan: #06b6d4;
+
+    --dark: #070b14;
+    --dark2: #0c1220;
+    --dark3: #111827;
+
+    --white: #ffffff;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+
+    --border: rgba(255,255,255,0.08);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.app-shell {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    background:
+        radial-gradient(
+            circle at 65% 25%,
+            rgba(59,130,246,0.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(139,92,246,0.09),
+            transparent 25%
+        ),
+        #070b14;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: 275px;
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12,18,32,0.98),
+            rgba(7,11,20,0.99)
+        );
+
+    border-right: 1px solid var(--border);
+
+    padding: 22px 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 0.35s ease;
+}
+
+
+/* sidebar glow */
+
+.sidebar::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59,130,246,0.14),
+            transparent 70%
+        );
+
+    top: -80px;
+    left: -100px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* logo */
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 15px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 25px rgba(59,130,246,0.22);
+}
+
+.brand-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 4px;
+
+    display: block;
+}
+
+
+.brand h2 {
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.4px;
+}
+
+.brand span {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   NEW CHAT
+========================================================= */
+
+.new-chat-btn {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid rgba(96,165,250,0.25);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.25),
+            rgba(124,58,237,0.22)
+        );
+
+    color: #dbeafe;
+
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    position: relative;
+    z-index: 2;
+}
+
+.new-chat-btn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.45),
+            rgba(124,58,237,0.38)
+        );
+
+    border-color: rgba(96,165,250,0.55);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(37,99,235,0.15);
+}
+
+
+/* =========================================================
+   QUICK ACCESS
+========================================================= */
+
+.sidebar-section {
+    margin-top: 30px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    display: block;
+
+    color: #475569;
+
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+
+    font-weight: 700;
+
+    margin:
+        0 9px 12px;
+}
+
+
+.side-action {
+    width: 100%;
+
+    border: 1px solid transparent;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    padding: 11px 10px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 4px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    transition: 0.25s;
+
+    position: relative;
+}
+
+
+.side-action i {
+    width: 20px;
+
+    color: #60a5fa;
+
+    font-size: 13px;
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+
+.side-action:hover {
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(59,130,246,0.12),
+            transparent
+        );
+
+    border-color:
+        rgba(96,165,250,0.08);
+
+    transform: translateX(4px);
+}
+
+
+.side-action:hover i {
+    color: #93c5fd;
+
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.sidebar-footer {
+    margin-top: auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+.secure-badge {
+    padding: 11px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid rgba(255,255,255,0.06);
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.secure-badge i {
+    color: #22c55e;
+}
+
+
+/* =========================================================
+   CHAT CONTAINER
+========================================================= */
+
+.chat-container {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(59,130,246,0.055),
+            transparent 30%
+        );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.chat-header {
+    height: 76px;
+
+    padding: 0 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        rgba(7,11,20,0.72);
+
+    backdrop-filter: blur(20px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.header-left {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.menu-btn {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.04);
+
+    color: #cbd5e1;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   AI AVATAR
+========================================================= */
+
+.ai-avatar {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 14px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    position: relative;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 0 4px rgba(59,130,246,0.05),
+        0 0 25px rgba(59,130,246,0.15);
+}
+
+.ai-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 3px;
+}
+
+
+.online-dot {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    right: 0;
+    bottom: 0;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    border: 2px solid #0b1220;
+
+    box-shadow:
+        0 0 10px rgba(34,197,94,0.8);
+}
+
+
+/* =========================================================
+   HEADER INFO
+========================================================= */
+
+.header-info h1 {
+    color: #f8fafc;
+
+    font-size: 16px;
+
+    font-weight: 650;
+}
+
+.header-info > span {
+    color: #64748b;
+
+    font-size: 10px;
+
+    display: block;
+
+    margin-top: 3px;
+}
+
+
+.status-dot {
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    margin-right: 5px;
+
+    box-shadow:
+        0 0 8px #22c55e;
+}
+
+
+/* =========================================================
+   CLEAR BUTTON
+========================================================= */
+
+.header-btn {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 11px;
+
+    border: 1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.header-btn:hover {
+    color: #f87171;
+
+    border-color:
+        rgba(248,113,113,0.25);
+
+    background:
+        rgba(248,113,113,0.07);
+}
+
+
+/* =========================================================
+   CHAT BOX
+========================================================= */
+
+.chat-box {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding:
+        35px 9%;
+
+    scroll-behavior: smooth;
+}
+
+
+.chat-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #1e293b;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   WELCOME SCREEN
+========================================================= */
+
+.welcome-screen {
+    max-width: 760px;
+
+    margin:
+        25px auto 45px;
+
+    text-align: center;
+
+    animation:
+        welcomeIn 0.8s ease;
+}
+
+
+/* =========================================================
+   WELCOME LOGO
+========================================================= */
+
+.welcome-icon {
+    width: 88px;
+    height: 88px;
+
+    margin: auto;
+
+    border-radius: 27px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 0 8px rgba(59,130,246,0.035),
+        0 0 35px rgba(59,130,246,0.18);
+
+    animation:
+        logoFloat 3s ease-in-out infinite;
+}
+
+.welcome-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 5px;
+}
+
+
+/* =========================================================
+   WELCOME TITLE
+========================================================= */
+
+.welcome-screen h2 {
+    margin-top: 23px;
+
+    font-size: 32px;
+
+    font-weight: 750;
+
+    letter-spacing: -1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #60a5fa,
+            #a78bfa
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.welcome-screen > p {
+    max-width: 590px;
+
+    margin:
+        12px auto 30px;
+
+    color: #64748b;
+
+    line-height: 1.75;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   QUICK CARDS
+========================================================= */
+
+.quick-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+
+.quick-card {
+    min-height: 105px;
+
+    padding: 17px 10px;
+
+    border-radius: 16px;
+
+    border:
+        1px solid rgba(255,255,255,0.075);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+
+    color: #cbd5e1;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        border 0.3s,
+        background 0.3s,
+        box-shadow 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.quick-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59,130,246,0.18),
+            transparent 70%
+        );
+
+    top: -65px;
+    right: -50px;
+
+    transition: 0.4s;
+}
+
+
+.quick-card i {
+    color: #60a5fa;
+
+    font-size: 20px;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+
+.quick-card span {
+    font-size: 11px;
+
+    color: #cbd5e1;
+
+    position: relative;
+}
+
+
+.quick-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(96,165,250,0.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(59,130,246,0.12),
+            rgba(139,92,246,0.06)
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.25),
+        0 0 20px rgba(59,130,246,0.06);
+}
+
+
+.quick-card:hover i {
+    transform:
+        scale(1.15)
+        rotate(-3deg);
+
+    color: #93c5fd;
+}
+
+
+.quick-card:hover::before {
+    transform: scale(1.7);
+}
+
+
+/* =========================================================
+   CHAT MESSAGES
+========================================================= */
+
+.message {
+    display: flex;
+
+    gap: 11px;
+
+    margin-bottom: 22px;
+
+    animation:
+        messageIn 0.3s ease;
+}
+
+
+.message.user {
+    flex-direction: row-reverse;
+}
+
+
+/* =========================================================
+   MESSAGE AVATAR
+========================================================= */
+
+.avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 5px 15px rgba(37,99,235,0.18);
+}
+
+
+.message.user .avatar {
+    background:
+        linear-gradient(
+            135deg,
+            #059669,
+            #16a34a
+        );
+}
+
+
+/* =========================================================
+   MESSAGE TEXT
+========================================================= */
+
+.text {
+    max-width:
+        min(75%, 720px);
+
+    padding:
+        13px 16px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(17,24,39,0.88);
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    color: #dbeafe;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+
+    white-space: pre-wrap;
+}
+
+
+.message.ai .text {
+    border-bottom-left-radius: 5px;
+}
+
+
+.message.user .text {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    border:
+        1px solid rgba(147,197,253,0.18);
+
+    color: white;
+
+    border-bottom-right-radius: 5px;
+
+    box-shadow:
+        0 8px 25px rgba(37,99,235,0.20);
+}
+
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+.typing {
+    display: flex;
+
+    gap: 5px;
+
+    align-items: center;
+}
+
+
+.typing span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #60a5fa;
+
+    animation:
+        typing 1.2s infinite;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+/* =========================================================
+   INPUT SECTION
+========================================================= */
+
+.input-section {
+    padding:
+        12px 9% 14px;
+
+    background:
+        rgba(7,11,20,0.82);
+
+    backdrop-filter:
+        blur(20px);
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+}
+
+
+/* =========================================================
+   SUGGESTIONS
+========================================================= */
+
+.suggestions {
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+.suggestions::-webkit-scrollbar {
+    display: none;
+}
+
+
+.suggestions button {
+    padding:
+        7px 11px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: #94a3b8;
+
+    white-space: nowrap;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.suggestions button:hover {
+    color: #bfdbfe;
+
+    border-color:
+        rgba(96,165,250,0.3);
+
+    background:
+        rgba(59,130,246,0.08);
+}
+
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
+.input-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 5px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(17,24,39,0.95);
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.25);
+
+    transition: 0.3s;
+}
+
+
+.input-wrapper:focus-within {
+    border-color:
+        rgba(96,165,250,0.45);
+
+    box-shadow:
+        0 0 0 4px rgba(59,130,246,0.06),
+        0 10px 35px rgba(0,0,0,0.28);
+}
+
+
+.input-wrapper input {
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #f8fafc;
+
+    font-size: 13px;
+
+    padding:
+        12px 5px;
+}
+
+
+.input-wrapper input::placeholder {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   VOICE BUTTON
+========================================================= */
+
+.voice-btn,
+.send-btn {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.voice-btn {
+    background:
+        rgba(255,255,255,0.055);
+
+    color: #94a3b8;
+
+    border:
+        1px solid rgba(255,255,255,0.06);
+}
+
+
+.voice-btn:hover {
+    color: #dbeafe;
+
+    background:
+        rgba(59,130,246,0.10);
+
+    border-color:
+        rgba(96,165,250,0.25);
+
+    transform: translateY(-2px);
+}
+
+
+.voice-btn.listening {
+    background:
+        rgba(239,68,68,0.12);
+
+    color: #f87171;
+
+    border-color:
+        rgba(248,113,113,0.25);
+
+    animation:
+        voicePulse 1s infinite;
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+.send-btn {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 5px 18px rgba(59,130,246,0.28);
+}
+
+
+.send-btn:hover {
+    transform:
+        translateY(-2px)
+        scale(1.03);
+
+    box-shadow:
+        0 8px 25px rgba(59,130,246,0.42);
+}
+
+
+.send-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.input-note {
+    text-align: center;
+
+    margin-top: 7px;
+
+    color: #475569;
+
+    font-size: 9px;
+}
+
+.input-note i {
+    margin-right: 3px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes welcomeIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes messageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+@keyframes typing {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    30% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes voicePulse {
+
+    50% {
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 0 6px rgba(239,68,68,0.06);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .chat-box {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .input-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .quick-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        position: fixed;
+
+        left: -280px;
+
+        top: 0;
+
+        z-index: 1000;
+
+        width: 275px;
+
+        box-shadow:
+            15px 0 50px rgba(0,0,0,0.5);
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .menu-btn {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chat-box {
+        padding:
+            28px 5%;
+    }
+
+    .input-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .chat-header {
+        height: 67px;
+
+        padding:
+            0 13px;
+    }
+
+    .header-info h1 {
+        font-size: 14px;
+    }
+
+    .header-info > span {
+        font-size: 9px;
+    }
+
+    .ai-avatar {
+        width: 41px;
+        height: 41px;
+
+        border-radius: 12px;
+    }
+
+    .header-btn {
+        width: 37px;
+        height: 37px;
+    }
+
+
+    .chat-box {
+        padding:
+            22px 13px;
+    }
+
+
+    .welcome-screen {
+        margin-top: 10px;
+    }
+
+
+    .welcome-icon {
+        width: 72px;
+        height: 72px;
+
+        border-radius: 22px;
+    }
+
+
+    .welcome-screen h2 {
+        font-size: 24px;
+
+        letter-spacing: -0.7px;
+    }
+
+
+    .welcome-screen > p {
+        font-size: 12px;
+
+        line-height: 1.7;
+
+        margin-bottom: 23px;
+    }
+
+
+    .quick-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .quick-card {
+        min-height: 90px;
+
+        padding: 12px 6px;
+
+        border-radius: 14px;
+    }
+
+
+    .quick-card i {
+        font-size: 18px;
+    }
+
+
+    .quick-card span {
+        font-size: 10px;
+    }
+
+
+    .message {
+        gap: 8px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .avatar {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 10px;
+
+        font-size: 11px;
+    }
+
+
+    .text {
+        max-width: 82%;
+
+        padding:
+            11px 13px;
+
+        font-size: 12px;
+
+        line-height: 1.65;
+    }
+
+
+    .suggestions {
+        display: none;
+    }
+
+
+    .input-section {
+        padding:
+            8px 11px 10px;
+    }
+
+
+    .input-wrapper {
+        border-radius: 15px;
+    }
+
+
+    .input-wrapper input {
+        font-size: 12px;
+
+        padding:
+            10px 4px;
+    }
+
+
+    .voice-btn,
+    .send-btn {
+        width: 39px;
+        height: 39px;
+
+        border-radius: 11px;
+    }
+
+
+    .input-note {
+        font-size: 8px;
+
+        margin-top: 5px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .welcome-screen h2 {
+        font-size: 21px;
+    }
+
+    .welcome-screen > p {
+        font-size: 11px;
+    }
+
+    .quick-card {
+        min-height: 82px;
+    }
+
+    .text {
+        max-width: 78%;
+    }
+}   
+/* =========================================================
+   🧠 SVKPI AI — ADVANCED UNIQUE UI LAYER
+   Keep existing design + add futuristic details
+========================================================= */
+
+
+/* =========================================================
+   1. AI CORE RING AROUND WELCOME LOGO
+========================================================= */
+
+.welcome-icon {
+    position: relative;
+    isolation: isolate;
+}
+
+.welcome-icon::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 30px;
+
+    border: 1px solid transparent;
+
+    border-top-color: rgba(96,165,250,0.75);
+    border-right-color: rgba(139,92,246,0.35);
+
+    animation: aiCoreRotate 5s linear infinite;
+
+    pointer-events: none;
+}
+
+.welcome-icon::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -12px;
+
+    border-radius: 34px;
+
+    border: 1px solid rgba(59,130,246,0.07);
+
+    animation: aiCoreReverse 9s linear infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   2. AI CORE BADGE
+========================================================= */
+
+.welcome-screen h2 {
+    position: relative;
+}
+
+.welcome-screen h2::after {
+    content: "AI CORE";
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 9px;
+
+    padding: 4px 7px;
+
+    border-radius: 6px;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #93c5fd;
+
+    background:
+        rgba(59,130,246,0.08);
+
+    border:
+        1px solid rgba(96,165,250,0.18);
+
+    vertical-align: middle;
+
+    box-shadow:
+        0 0 15px rgba(59,130,246,0.08);
+
+    animation: coreBadge 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   3. HEADER LIVE INDICATOR
+========================================================= */
+
+.header-info > span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+.header-info > span::after {
+    content: "LIVE";
+
+    margin-left: 7px;
+
+    padding: 2px 5px;
+
+    border-radius: 4px;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+
+    color: #86efac;
+
+    background:
+        rgba(34,197,94,0.07);
+
+    border:
+        1px solid rgba(34,197,94,0.13);
+
+    animation: liveBlink 2s infinite;
+}
+
+
+/* =========================================================
+   4. ONLINE DOT — SOFT PULSE
+========================================================= */
+
+.online-dot {
+    animation: onlineGlow 2s infinite;
+}
+
+.status-dot {
+    animation: statusGlow 2s infinite;
+}
+
+
+/* =========================================================
+   5. QUICK CARD LIGHT SWEEP
+========================================================= */
+
+.quick-card {
+    isolation: isolate;
+}
+
+.quick-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -130%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.055),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.7s;
+
+    pointer-events: none;
+}
+
+.quick-card:hover::after {
+    left: 140%;
+}
+
+
+/* =========================================================
+   6. QUICK CARD ICON GLOW
+========================================================= */
+
+.quick-card i {
+    filter:
+        drop-shadow(
+            0 0 6px rgba(96,165,250,0.22)
+        );
+}
+
+.quick-card:hover i {
+    filter:
+        drop-shadow(
+            0 0 12px rgba(96,165,250,0.55)
+        );
+}
+
+
+/* =========================================================
+   7. SIDEBAR SYSTEM STATUS
+========================================================= */
+
+.secure-badge {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.secure-badge::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 10px rgba(34,197,94,0.8);
+
+    animation: systemPulse 2s infinite;
+}
+
+.secure-badge i {
+    display: none;
+}
+
+.secure-badge span::after {
+    content: " • SYSTEM ONLINE";
+
+    color: #4ade80;
+
+    font-size: 8px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   8. SIDEBAR HOVER ENERGY LINE
+========================================================= */
+
+.side-action::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #8b5cf6,
+            transparent
+        );
+
+    transition: 0.3s;
+}
+
+.side-action:hover::after {
+    width: 75%;
+}
+
+
+/* =========================================================
+   9. INPUT SCANNING EFFECT
+========================================================= */
+
+.input-wrapper {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.input-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(96,165,250,0.08),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    pointer-events: none;
+}
+
+.input-wrapper:focus-within::after {
+    animation: inputScanner 3s linear infinite;
+}
+
+
+/* =========================================================
+   10. SEND BUTTON ENERGY
+========================================================= */
+
+.send-btn {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.send-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 75%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.20),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s;
+}
+
+.send-btn:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================================
+   11. AI MESSAGE HOVER
+========================================================= */
+
+.message.ai .text {
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s;
+}
+
+.message.ai .text:hover {
+    border-color:
+        rgba(96,165,250,0.15);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.22),
+        0 0 18px rgba(59,130,246,0.035);
+}
+
+
+/* =========================================================
+   12. USER MESSAGE GLOW
+========================================================= */
+
+.message.user .text {
+    transition: 0.25s;
+}
+
+.message.user .text:hover {
+    box-shadow:
+        0 10px 30px rgba(37,99,235,0.28);
+}
+
+
+/* =========================================================
+   13. BACKGROUND AI ORBS
+========================================================= */
+
+.chat-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: 15%;
+    right: 12%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59,130,246,0.045),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    animation:
+        ambientFloat 10s ease-in-out infinite alternate;
+}
+
+.chat-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    bottom: 18%;
+    left: 28%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,0.035),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    animation:
+        ambientFloat2 12s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   14. CLEAR BUTTON MICRO EFFECT
+========================================================= */
+
+.header-btn {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.header-btn::before {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    top: 50%;
+    left: 50%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(248,113,113,0.12);
+
+    transform:
+        translate(-50%, -50%);
+
+    transition: 0.35s;
+}
+
+.header-btn:hover::before {
+    width: 70px;
+    height: 70px;
+}
+
+
+/* =========================================================
+   15. VOICE BUTTON — AI LISTENING RING
+========================================================= */
+
+.voice-btn.listening {
+    position: relative;
+}
+
+.voice-btn.listening::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(248,113,113,0.22);
+
+    animation:
+        listeningRing 1.2s infinite;
+}
+
+
+/* =========================================================
+   16. TYPING DOTS — AI PROCESSING
+========================================================= */
+
+.typing {
+    position: relative;
+}
+
+.typing::before {
+    content: "AI";
+
+    margin-right: 3px;
+
+    color: #60a5fa;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   17. FUTURISTIC ANIMATIONS
+========================================================= */
+
+@keyframes aiCoreRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes aiCoreReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+@keyframes coreBadge {
+
+    0%,
+    100% {
+        opacity: 0.65;
+
+        box-shadow:
+            0 0 5px rgba(59,130,246,0.02);
+    }
+
+    50% {
+        opacity: 1;
+
+        box-shadow:
+            0 0 15px rgba(59,130,246,0.12);
+    }
+}
+
+
+@keyframes liveBlink {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes onlineGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 7px rgba(34,197,94,0.55);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px rgba(34,197,94,0.95);
+    }
+}
+
+
+@keyframes statusGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 5px #22c55e;
+    }
+
+    50% {
+        box-shadow:
+            0 0 12px #22c55e;
+    }
+}
+
+
+@keyframes systemPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+
+@keyframes inputScanner {
+
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+
+@keyframes ambientFloat {
+
+    from {
+        transform:
+            translate(0,0)
+            scale(0.9);
+    }
+
+    to {
+        transform:
+            translate(-40px,30px)
+            scale(1.15);
+    }
+}
+
+
+@keyframes ambientFloat2 {
+
+    from {
+        transform:
+            translate(0,0)
+            scale(0.9);
+    }
+
+    to {
+        transform:
+            translate(35px,-25px)
+            scale(1.1);
+    }
+}
+
+
+@keyframes listeningRing {
+
+    0% {
+        transform: scale(0.95);
+
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.15);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   18. REDUCE MOTION FOR USERS WHO PREFER IT
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   19. MOBILE — KEEP IT CLEAN
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .welcome-screen h2::after {
+        margin-left: 5px;
+        font-size: 6px;
+        padding: 3px 5px;
+    }
+
+    .welcome-icon::before {
+        inset: -5px;
+    }
+
+    .welcome-icon::after {
+        inset: -9px;
+    }
+
+    .header-info > span::after {
+        font-size: 5px;
+        margin-left: 4px;
+    }
+
+    .chat-container::before,
+    .chat-container::after {
+        opacity: 0.45;
+    }
+}
+/* =========================================================
+   SVKPI AI — SUBTLE TEAL/GREEN COLOR UPDATE
+   Existing design unchanged
+========================================================= */
+
+/* Main background */
+:root {
+    --blue: #14b8a6;
+    --blue2: #0d9488;
+    --purple: #0f766e;
+    --cyan: #2dd4bf;
+
+    --dark: #050b0d;
+    --dark2: #071215;
+    --dark3: #0b191b;
+
+    --text: #e2f5f3;
+    --muted: #8aa7a5;
+
+    --border: rgba(120, 220, 210, 0.10);
+}
+
+
+/* Main app background */
+.app-shell {
+    background:
+        radial-gradient(
+            circle at 65% 25%,
+            rgba(20, 184, 166, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(13, 148, 136, 0.07),
+            transparent 25%
+        ),
+        #050b0d;
+}
+
+
+/* Sidebar */
+.sidebar {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7, 18, 21, 0.98),
+            rgba(5, 11, 13, 0.99)
+        );
+}
+
+
+/* Sidebar glow */
+.sidebar::after {
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 184, 166, 0.12),
+            transparent 70%
+        );
+}
+
+
+/* New Chat */
+.new-chat-btn {
+    border-color: rgba(45, 212, 191, 0.22);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(13, 148, 136, 0.20),
+            rgba(20, 184, 166, 0.12)
+        );
+
+    color: #ccfbf1;
+}
+
+.new-chat-btn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(13, 148, 136, 0.35),
+            rgba(20, 184, 166, 0.25)
+        );
+
+    border-color: rgba(45, 212, 191, 0.45);
+
+    box-shadow:
+        0 8px 25px rgba(20, 184, 166, 0.12);
+}
+
+
+/* Sidebar icons */
+.side-action i {
+    color: #2dd4bf;
+}
+
+.side-action:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 184, 166, 0.10),
+            transparent
+        );
+
+    border-color:
+        rgba(45, 212, 191, 0.08);
+}
+
+.side-action:hover i {
+    color: #5eead4;
+}
+
+
+/* Chat container */
+.chat-container {
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(20, 184, 166, 0.045),
+            transparent 30%
+        );
+}
+
+
+/* Header */
+.chat-header {
+    background:
+        rgba(5, 11, 13, 0.78);
+}
+
+
+/* AI avatar glow */
+.ai-avatar {
+    box-shadow:
+        0 0 0 4px rgba(20, 184, 166, 0.04),
+        0 0 25px rgba(20, 184, 166, 0.12);
+}
+
+
+/* Welcome logo glow */
+.welcome-icon {
+    box-shadow:
+        0 0 0 8px rgba(20, 184, 166, 0.025),
+        0 0 35px rgba(20, 184, 166, 0.14);
+}
+
+
+/* Welcome title */
+.welcome-screen h2 {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #5eead4,
+            #2dd4bf
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* AI Core ring */
+.welcome-icon::before {
+    border-top-color: rgba(45, 212, 191, 0.70);
+    border-right-color: rgba(20, 184, 166, 0.30);
+}
+
+.welcome-icon::after {
+    border-color: rgba(20, 184, 166, 0.07);
+}
+
+
+/* AI Core badge */
+.welcome-screen h2::after {
+    color: #5eead4;
+
+    background:
+        rgba(20, 184, 166, 0.07);
+
+    border-color:
+        rgba(45, 212, 191, 0.16);
+
+    box-shadow:
+        0 0 15px rgba(20, 184, 166, 0.07);
+}
+
+
+/* Quick cards */
+.quick-card::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 184, 166, 0.15),
+            transparent 70%
+        );
+}
+
+.quick-card i {
+    color: #2dd4bf;
+}
+
+.quick-card:hover {
+    border-color:
+        rgba(45, 212, 191, 0.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 184, 166, 0.10),
+            rgba(13, 148, 136, 0.05)
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(20, 184, 166, 0.05);
+}
+
+.quick-card:hover i {
+    color: #5eead4;
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(45, 212, 191, 0.50)
+        );
+}
+
+
+/* AI message bubble */
+.text {
+    background:
+        rgba(11, 25, 27, 0.92);
+
+    border:
+        1px solid rgba(120, 220, 210, 0.09);
+
+    color: #d5f5f1;
+}
+
+
+/* User avatar */
+.message.user .avatar {
+    background:
+        linear-gradient(
+            135deg,
+            #0d9488,
+            #059669
+        );
+}
+
+
+/* User message */
+.message.user .text {
+    background:
+        linear-gradient(
+            135deg,
+            #0f766e,
+            #0d9488
+        );
+
+    border-color:
+        rgba(94, 234, 212, 0.18);
+
+    box-shadow:
+        0 8px 25px rgba(13, 148, 136, 0.18);
+}
+
+
+/* AI typing */
+.typing span {
+    background: #2dd4bf;
+}
+
+
+/* Input area */
+.input-section {
+    background:
+        rgba(5, 11, 13, 0.86);
+}
+
+
+/* Input box */
+.input-wrapper {
+    background:
+        rgba(11, 25, 27, 0.96);
+
+    border:
+        1px solid rgba(120, 220, 210, 0.10);
+}
+
+.input-wrapper:focus-within {
+    border-color:
+        rgba(45, 212, 191, 0.40);
+
+    box-shadow:
+        0 0 0 4px rgba(20, 184, 166, 0.05),
+        0 10px 35px rgba(0, 0, 0, 0.28);
+}
+
+
+/* Voice button */
+.voice-btn:hover {
+    color: #ccfbf1;
+
+    background:
+        rgba(20, 184, 166, 0.08);
+
+    border-color:
+        rgba(45, 212, 191, 0.22);
+}
+
+
+/* Send button */
+.send-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #0d9488,
+            #14b8a6
+        );
+
+    box-shadow:
+        0 5px 18px rgba(20, 184, 166, 0.22);
+}
+
+.send-btn:hover {
+    box-shadow:
+        0 8px 25px rgba(20, 184, 166, 0.35);
+}
+
+
+/* Suggestion buttons */
+.suggestions button:hover {
+    color: #ccfbf1;
+
+    border-color:
+        rgba(45, 212, 191, 0.25);
+
+    background:
+        rgba(20, 184, 166, 0.07);
+}
+
+
+/* Sidebar energy line */
+.side-action::after {
+    background:
+        linear-gradient(
+            90deg,
+            #14b8a6,
+            #2dd4bf,
+            transparent
+        );
+}
+
+
+/* Background ambient glow */
+.chat-container::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 184, 166, 0.035),
+            transparent 70%
+        );
+}
+
+.chat-container::after {
+    background:
+        radial-gradient(
+            circle,
+            rgba(13, 148, 136, 0.025),
+            transparent 70%
+        );
+}
+/* =========================================================
+   SUGGESTION BUTTONS — SAME STYLE, MORE COLOR
+========================================================= */
+
+.suggestions button {
+    color: #b8e8e3;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 184, 166, 0.10),
+            rgba(13, 148, 136, 0.05)
+        );
+
+    border:
+        1px solid rgba(45, 212, 191, 0.28);
+
+    box-shadow:
+        0 0 12px rgba(20, 184, 166, 0.04);
+
+    transition:
+        0.25s ease;
+}
+
+.suggestions button:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 184, 166, 0.22),
+            rgba(13, 148, 136, 0.12)
+        );
+
+    border-color:
+        rgba(45, 212, 191, 0.55);
+
+    box-shadow:
+        0 0 18px rgba(20, 184, 166, 0.15);
+
+    transform: translateY(-2px);
+}

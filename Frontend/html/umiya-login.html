@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Umiya Nursing College Portal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0754a8, #168bd5, #48b7e9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .portal-wrapper {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .login-box {
+            width: 100%;
+            min-height: 365px;
+            display: flex;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+        }
+
+        .brand-panel {
+            width: 52%;
+            padding: 30px;
+            color: #fff;
+            background: linear-gradient(145deg, #0754a8, #277bc4);
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0754a8;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px;
+        }
+
+        .logo-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .logo-subtitle {
+            font-size: 7px;
+            margin-top: 3px;
+            opacity: 0.9;
+        }
+
+        .brand-content {
+            margin-top: 48px;
+        }
+
+        .brand-content h1 {
+            font-size: 27px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .brand-content p {
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .login-panel {
+            width: 48%;
+            padding: 28px 35px;
+            background: #fff;
+        }
+
+        .login-panel h2 {
+            color: #073b76;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .login-panel .subtitle {
+            font-size: 9px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 9px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            height: 35px;
+            border: 1px solid #cfcfcf;
+            border-radius: 4px;
+            padding: 0 10px;
+            outline: none;
+            font-size: 9px;
+            background: #fff;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: #0874c9;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 35px;
+            border: none;
+            border-radius: 4px;
+            background: #075fba;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1px;
+        }
+
+        .login-btn:hover {
+            background: #064d99;
+        }
+
+        .forgot {
+            display: block;
+            text-align: center;
+            margin-top: 9px;
+            font-size: 7px;
+            color: #176cc0;
+            text-decoration: none;
+        }
+
+        .quick-section {
+            margin-top: 15px;
+            padding: 14px 12px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .quick-title {
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .quick-card {
+            min-height: 82px;
+            background: #fff;
+            border-radius: 6px;
+            text-align: center;
+            padding: 10px 6px;
+        }
+
+        .quick-icon {
+            font-size: 17px;
+            color: #075fba;
+            margin-bottom: 5px;
+        }
+
+        .quick-card h3 {
+            font-size: 8px;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .quick-card p {
+            font-size: 6px;
+            color: #777;
+            margin-bottom: 7px;
+        }
+
+        .quick-card a {
+            display: inline-block;
+            background: #075fba;
+            color: #fff;
+            text-decoration: none;
+            padding: 4px 13px;
+            border-radius: 3px;
+            font-size: 7px;
+        }
+
+        .quick-card a:hover {
+            background: #064d99;
+        }
+
+        .message {
+            display: none;
+            font-size: 9px;
+            margin-top: 8px;
+            text-align: center;
+            color: #075fba;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 12px;
+            }
+
+            .login-box {
+                flex-direction: column;
+            }
+
+            .brand-panel,
+            .login-panel {
+                width: 100%;
+            }
+
+            .brand-panel {
+                min-height: 220px;
+            }
+
+            .brand-content {
+                margin-top: 35px;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="portal-wrapper">
+
+    <div class="login-box">
+
+        <!-- LEFT BRAND PANEL -->
+        <section class="brand-panel">
+
+            <div class="logo-area">
+                <!-- Replace this box with Umiya Nursing logo when available -->
+                <div class="logo-box">UMIYA<br>NURSING</div>
+
+                <div>
+                    <div class="logo-title">Umiya Nursing College Portal</div>
+                    <div class="logo-subtitle">
+                        Shree Umiya Nursing College, Meghna Campus, Kadi
+                    </div>
+                </div>
+            </div>
+
+            <div class="brand-content">
+                <h1>UMIYA NURSING</h1>
+                <p>E Campus Management System</p>
+            </div>
+
+        </section>
+
+        <!-- RIGHT LOGIN PANEL -->
+        <section class="login-panel">
+
+            <h2>Welcome Back</h2>
+            <div class="subtitle">Please Login to Continue</div>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <select id="loginType" required>
+                        <option value="">Select Login Type</option>
+                        <option value="student">Student</option>
+                        <option value="faculty">Faculty</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter Email / Student ID"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter Password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+
+                <a href="#" class="forgot" onclick="forgotPassword(event)">
+                    Forgot Password?
+                </a>
+
+                <div id="message" class="message"></div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <!-- QUICK ACCESS -->
+    <section class="quick-section">
+
+        <div class="quick-title">Quick Access</div>
+
+        <div class="quick-grid">
+
+            <!-- OUR EXISTING AI ASSISTANT -->
+            <div class="quick-card">
+                <div class="quick-icon">🤖</div>
+                <h3>AI Assistant</h3>
+                <p>Ask AI for instant help.</p>
+                <a href="../frontendai/chatbot.html">Open</a>
+            </div>
+
+            <!-- RESULT -->
+            <div class="quick-card">
+                <div class="quick-icon">🎓</div>
+                <h3>Results</h3>
+                <p>Check Semester Results.</p>
+                <a href="result.html">Open</a>
+            </div>
+
+            <!-- NOTICE BOARD -->
+            <div class="quick-card">
+                <div class="quick-icon">📢</div>
+                <h3>Notice Board</h3>
+                <p>Latest College Notices.</p>
+                <a href="notice.html">Open</a>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const loginType = document.getElementById("loginType").value;
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const message = document.getElementById("message");
+
+        if (!loginType || !email || !password) {
+            message.style.display = "block";
+            message.textContent = "Please fill all login details.";
+            return;
+        }
+
+        message.style.display = "block";
+        message.textContent = "Login system will be connected with the backend.";
+
+        /*
+          Backend login will be connected in the next step.
+          For now this page only validates the login form.
+        */
+    });
+
+    function forgotPassword(event) {
+        event.preventDefault();
+        alert("Forgot Password feature will be connected with the backend.");
+    }
+</script>
+
+</body>
+</html>

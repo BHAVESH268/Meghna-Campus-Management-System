@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umiya Nursing College - Notice Board</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;background:linear-gradient(135deg,#0754a8,#168bd5,#48b7e9);padding:25px;color:#18324d}
+.container{max-width:1000px;margin:auto}
+.header{background:#fff;border-radius:10px;padding:22px 28px;box-shadow:0 10px 30px rgba(0,0,0,.18);display:flex;justify-content:space-between;align-items:center}
+.brand h1{font-size:24px;color:#0754a8}.brand p{font-size:11px;color:#777;margin-top:5px}
+.back{background:#075fba;color:#fff;text-decoration:none;padding:10px 17px;border-radius:5px;font-size:11px}
+.hero{margin-top:18px;background:rgba(255,255,255,.17);padding:24px;border-radius:10px;color:#fff}
+.hero h2{font-size:25px}.hero p{font-size:12px;margin-top:7px}
+.notice-list{margin-top:18px;display:grid;gap:12px}
+.notice{background:#fff;border-radius:9px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start;box-shadow:0 7px 20px rgba(0,0,0,.12)}
+.number{min-width:42px;height:42px;border-radius:50%;background:#eaf5ff;color:#075fba;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px}
+.notice h3{font-size:15px;color:#0754a8;margin-bottom:5px}.notice p{font-size:10px;color:#777;line-height:1.5}
+.badge{display:inline-block;font-size:8px;background:#075fba;color:#fff;border-radius:10px;padding:4px 8px;margin-bottom:7px}
+.info{margin-top:15px;background:#fff;border-radius:9px;padding:18px;font-size:10px;color:#666;line-height:1.6}
+@media(max-width:650px){.header{gap:15px;align-items:flex-start;flex-direction:column}.notice{padding:14px}.number{min-width:35px;height:35px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+<div class="brand">
+<h1>Shree Umiya Nursing College</h1>
+<p>Meghna Campus, Kadi • Official Notice Board</p>
+</div>
+<a class="back" href="umiya-login.html">← Back to Login</a>
+</header>
+
+<section class="hero">
+<h2>Notice Board</h2>
+<p>Important academic, examination, admission and college updates.</p>
+</section>
+
+<section class="notice-list">
+<article class="notice">
+<div class="number">01</div>
+<div>
+<span class="badge">ACADEMIC</span>
+<h3>Academic Notices</h3>
+<p>Important academic announcements will be displayed here.</p>
+</div>
+</article>
+
+<article class="notice">
+<div class="number">02</div>
+<div>
+<span class="badge">EXAM</span>
+<h3>Examination Notices</h3>
+<p>Examination schedules, instructions and related notices will be added here.</p>
+</div>
+</article>
+
+<article class="notice">
+<div class="number">03</div>
+<div>
+<span class="badge">RESULT</span>
+<h3>Result Updates</h3>
+<p>Newly published result information and result-related announcements will be displayed here.</p>
+</div>
+</article>
+
+<article class="notice">
+<div class="number">04</div>
+<div>
+<span class="badge">ADMISSION</span>
+<h3>Admission 2026–27</h3>
+<p>Admission updates will be published here. Students should verify dates and requirements with the college.</p>
+</div>
+</article>
+
+<article class="notice">
+<div class="number">05</div>
+<div>
+<span class="badge">COLLEGE</span>
+<h3>College Notices</h3>
+<p>General college announcements and important circulars will appear here.</p>
+</div>
+</article>
+</section>
+
+<div class="info">
+<strong>Admin feature:</strong> In the next step, we can connect this notice board to a backend so the administrator can add, edit and remove notices without changing the HTML.
+</div>
+</div>
+</body>
+</html>
