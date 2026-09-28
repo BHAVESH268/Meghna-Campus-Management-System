@@ -1,0 +1,25 @@
+{
+  "name": "meghna-campus-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BHAVESH268/svet-campus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BHAVESH268/svet-campus/issues"
+  },
+  "homepage": "https://github.com/BHAVESH268/svet-campus#readme",
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | SVKPI</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: linear-gradient(180deg, #071a3d, #102b5c);
+            padding: 25px 18px;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 10px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #15bcdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 21px;
+        }
+
+        .logo-text h2 {
+            color: white;
+            font-size: 18px;
+        }
+
+        .logo-text p {
+            color: #aebbd2;
+            font-size: 11px;
+        }
+
+        .menu {
+            margin-top: 25px;
+        }
+
+        .menu-title {
+            color: #8192b0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0 12px 10px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #d8e1f0;
+            padding: 13px 14px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: rgba(21,188,223,0.18);
+            color: #15bcdf;
+        }
+
+        .menu a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 25px;
+            left: 18px;
+            right: 18px;
+        }
+
+        .logout a {
+            color: #ffb6b6;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        /* TOPBAR */
+
+        .topbar {
+            height: 75px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 35px;
+            border-bottom: 1px solid #e8edf4;
+        }
+
+        .page-title h1 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .page-title p {
+            color: #7d8798;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .student-mini {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .student-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #15bcdf;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .student-mini strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .student-mini span {
+            font-size: 11px;
+            color: #7d8798;
+        }
+
+        /* CONTENT */
+
+        .content {
+            padding: 30px 35px;
+        }
+
+        /* WELCOME */
+
+        .welcome {
+            background: linear-gradient(135deg, #0a2552, #126082);
+            color: white;
+            border-radius: 18px;
+            padding: 28px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .welcome h2 {
+            font-size: 23px;
+            margin-bottom: 7px;
+        }
+
+        .welcome p {
+            color: #d6e7ef;
+            font-size: 13px;
+        }
+
+        .welcome-icon {
+            font-size: 70px;
+            opacity: 0.18;
+        }
+
+        /* QUICK STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #e7edf4;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #e8f9fc;
+            color: #15a9c9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .stat-card h3 {
+            font-size: 20px;
+        }
+
+        .stat-card p {
+            font-size: 11px;
+            color: #7d8798;
+        }
+
+        /* SECTION TITLE */
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 18px;
+        }
+
+        .section-title span {
+            color: #7d8798;
+            font-size: 11px;
+        }
+
+        /* FACILITIES */
+
+        .facilities {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .facility-card {
+            background: white;
+            border: 1px solid #e7edf4;
+            border-radius: 15px;
+            padding: 22px;
+            text-decoration: none;
+            color: #172033;
+            transition: 0.2s;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-3px);
+            border-color: #15bcdf;
+            box-shadow: 0 8px 25px rgba(20,40,70,0.08);
+        }
+
+        .facility-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #edf9fc;
+            color: #15abc9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            margin-bottom: 15px;
+        }
+
+        .facility-card h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .facility-card p {
+            color: #7d8798;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* BOTTOM AREA */
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid #e7edf4;
+            border-radius: 15px;
+            padding: 22px;
+        }
+
+        .notice {
+            padding: 13px 0;
+            border-bottom: 1px solid #edf0f5;
+            display: flex;
+            gap: 12px;
+        }
+
+        .notice:last-child {
+            border-bottom: none;
+        }
+
+        .notice-icon {
+            color: #15bcdf;
+            margin-top: 3px;
+        }
+
+        .notice h4 {
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+
+        .notice p {
+            font-size: 10px;
+            color: #7d8798;
+        }
+
+        .profile-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 11px 0;
+            border-bottom: 1px solid #edf0f5;
+            font-size: 12px;
+        }
+
+        .profile-row:last-child {
+            border-bottom: none;
+        }
+
+        .profile-row span {
+            color: #7d8798;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1100px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .facilities {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                width: 75px;
+                padding: 20px 10px;
+            }
+
+            .logo-text,
+            .menu-title,
+            .menu a span {
+                display: none;
+            }
+
+            .logo-area {
+                justify-content: center;
+                padding: 5px 0 20px;
+            }
+
+            .menu a {
+                justify-content: center;
+            }
+
+            .logout {
+                left: 10px;
+                right: 10px;
+            }
+
+            .main {
+                margin-left: 75px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .facilities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .stats,
+            .facilities {
+                grid-template-columns: 1fr;
+            }
+
+            .student-mini > div:last-child {
+                display: none;
+            }
+
+            .welcome-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+       <div class="logo-icon">
+    <img src="C:\Users\HP\Downloads\svkpie logo.jpeg" alt="SVKPIE Logo">
+</div>
+            <div class="logo-text">
+                <h2>SVKPI</h2>
+                <p>Student Portal</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <div class="menu-title">Student Menu</div>
+
+            <!-- DASHBOARD -->
+            <a href="student-dashboard.html" class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <!-- PROFILE -->
+            <a href="#">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <!-- RESULT -->
+            <a href="https://www.student.gtu.ac.in/" target="_blank">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>My Result</span>
+            </a>
+
+            <!-- CIRCULAR / NOTICE -->
+            <a href="https://gtu.ac.in/circular" target="_blank">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Circular / Notice</span>
+            </a>
+
+            <!-- GTU RESULT -->
+            <a href="https://www.students.gtu.ac.in/" target="_blank">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>GTU Result</span>
+            </a>
+
+            <!-- ASSIGNMENTS -->
+            <a href="assignments.html">
+                <i class="fa-solid fa-file-pen"></i>
+                <span>Assignments</span>
+            </a>
+
+            <!-- STUDY MATERIAL -->
+            <a href="study-material.html">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Study Material</span>
+            </a>
+
+            <!-- TIMETABLE -->
+            <a href="https://timetable.gtu.ac.in/" target="_blank">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Timetable</span>
+            </a>
+
+            <!-- PRACTICAL / VIVA -->
+            <a href="https://timetable.gtu.ac.in/centcode.aspx" target="_blank">
+                <i class="fa-solid fa-flask"></i>
+                <span>Practical / Viva</span>
+            </a>
+
+            <!-- ATTENDANCE -->
+            <a href="attendance.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <!-- ANNOUNCEMENTS -->
+            <a href="announcements.html">
+                <i class="fa-solid fa-bell"></i>
+                <span>Announcements</span>
+            </a>
+
+        </nav>
+
+        <div class="logout">
+            <a href="#">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <h1>Student Dashboard</h1>
+                <p>SVKPI Student Portal</p>
+            </div>
+
+            <div class="student-mini">
+
+                <div class="student-avatar">
+                    S
+                </div>
+
+                <div>
+                    <strong>Student</strong>
+                    <span>Computer Engineering</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+            <!-- WELCOME -->
+
+            <div class="welcome">
+
+                <div>
+                    <h2>Welcome to Student Portal 👋</h2>
+
+                    <p>
+                        Access your academic information, results,
+                        assignments, notices and other student facilities.
+                    </p>
+                </div>
+
+                <div class="welcome-icon">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+            </div>
+
+
+            <!-- FACILITIES -->
+
+            <div class="section-title">
+                <h2>Student Facilities</h2>
+                <span>Quick Access</span>
+            </div>
+
+
+            <div class="facilities">
+
+                <!-- MY PROFILE -->
+
+                <a href="#" class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <h3>My Profile</h3>
+
+                    <p>
+                        View your personal and academic information.
+                    </p>
+
+                </a>
+
+
+                <!-- MY RESULT -->
+
+                <a href="https://www.student.gtu.ac.in/"
+                   target="_blank"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+
+                    <h3>My Result</h3>
+
+                    <p>
+                        View semester-wise result, SPI and CGPA.
+                    </p>
+
+                </a>
+
+
+                <!-- CIRCULAR / NOTICE -->
+
+                <a href="https://gtu.ac.in/circular"
+                   target="_blank"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+
+                    <h3>Circular / Notice</h3>
+
+                    <p>
+                        View important college circulars and notices.
+                    </p>
+
+                </a>
+
+
+                <!-- GRADE HISTORY -->
+
+                <a href="https://www.students.gtu.ac.in/"
+                   target="_blank"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+
+                    <h3>Grade History</h3>
+
+                    <p>
+                        View your GTU student grade history.
+                    </p>
+
+                </a>
+
+
+                <!-- ASSIGNMENTS -->
+
+                <a href="assignments.html"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+
+                    <h3>Assignments</h3>
+
+                    <p>
+                        View, download and manage assignments.
+                    </p>
+
+                </a>
+
+
+                <!-- STUDY MATERIAL -->
+
+                <a href="study-material.html"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <h3>Study Material</h3>
+
+                    <p>
+                        Access notes, PDFs and practical material.
+                    </p>
+
+                </a>
+
+
+                <!-- TIMETABLE -->
+
+                <a href="https://timetable.gtu.ac.in/"
+                   target="_blank"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+
+                    <h3>Timetable</h3>
+
+                    <p>
+                        View class and examination timetable.
+                    </p>
+
+                </a>
+
+
+                <!-- PRACTICAL / VIVA -->
+
+                <a href="https://timetable.gtu.ac.in/centcode.aspx"
+                   target="_blank"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+
+                    <h3>Practical / Viva</h3>
+
+                    <p>
+                        Access practical and viva related information.
+                    </p>
+
+                </a>
+
+
+                <!-- ATTENDANCE -->
+
+                <a href="attendance.html"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <h3>Attendance</h3>
+
+                    <p>
+                        Check your attendance details.
+                    </p>
+
+                </a>
+
+
+                <!-- ANNOUNCEMENTS -->
+
+                <a href="announcements.html"
+                   class="facility-card">
+
+                    <div class="facility-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+
+                    <h3>Announcements</h3>
+
+                    <p>
+                        View latest college announcements.
+                    </p>
+
+                </a>
+
+            </div>
+
+
+            <!-- BOTTOM -->
+
+            <div class="bottom-grid">
+
+                <!-- NOTICE PANEL -->
+
+                <div class="panel">
+
+                    <div class="section-title">
+
+                        <h2>Latest Notices</h2>
+
+                        <span>Recent Updates</span>
+
+                    </div>
+
+
+                    <div class="notice">
+
+                        <div class="notice-icon">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>No new notices available</h4>
+
+                            <p>
+                                College notices will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="notice">
+
+                        <div class="notice-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Academic Updates</h4>
+
+                            <p>
+                                Academic information will be displayed here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE PANEL -->
+
+                <div class="panel">
+
+                    <div class="section-title">
+
+                        <h2>Student Information</h2>
+
+                    </div>
+
+
+                    <div class="profile-row">
+
+                        <span>Name</span>
+
+                        <strong>Student</strong>
+
+                    </div>
+
+
+                    <div class="profile-row">
+
+                        <span>Enrollment No.</span>
+
+                        <strong>---</strong>
+
+                    </div>
+
+
+                    <div class="profile-row">
+
+                        <span>Department</span>
+
+                        <strong>Computer Engineering</strong>
+
+                    </div>
+
+
+                    <div class="profile-row">
+
+                        <span>Semester</span>
+
+                        <strong>---</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="student-dashboard.js"></script>
+
+</body>
+</html>

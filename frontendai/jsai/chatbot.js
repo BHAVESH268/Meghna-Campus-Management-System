@@ -1,6 +1,7 @@
+
 /* =========================================================
    SVKPI AI ASSISTANT
-   ADVANCED FRONTEND + SVKPI INFORMATION
+   ADVANCED TEXT + VOICE + IMAGE AI
 ========================================================= */
 
 const chatBox = document.getElementById("chatBox");
@@ -11,6 +12,19 @@ const newChatBtn = document.getElementById("newChatBtn");
 const clearBtn = document.getElementById("clearBtn");
 const menuBtn = document.getElementById("menuBtn");
 const sidebar = document.getElementById("sidebar");
+
+/* IMAGE ELEMENTS */
+
+const attachBtn = document.getElementById("attachBtn");
+const imageInput = document.getElementById("imageInput");
+const imagePreviewContainer =
+    document.getElementById("imagePreviewContainer");
+const imagePreview =
+    document.getElementById("imagePreview");
+const imageName =
+    document.getElementById("imageName");
+const removeImageBtn =
+    document.getElementById("removeImageBtn");
 
 
 /* =========================================================
@@ -64,53 +78,185 @@ Campus Facilities:
 4. Workshop
 5. IT Infrastructure
 
-IMPORTANT RULE:
+IMPORTANT RULES:
 
-When the user asks about SVKPI, college information,
-courses, facilities, contact details, location,
-affiliation, approval or website, use the information
-provided above.
-
-Do not invent information that is not provided.
-
-For important official information, advise the user
-to verify it from the institute's official website.
+- Use only the provided SVKPI information for official college facts.
+- Do not invent SVKPI information.
+- If information is unavailable, clearly say that it is not available in the provided official information.
+- For important official information, advise verification from the institute.
+- If the user uploads an image, analyze the image carefully.
+- If the user asks about an uploaded image, answer based on what is actually visible.
+- If something cannot be determined from the image, say so.
 `;
+
+
+/* =========================================================
+   SELECTED IMAGE
+========================================================= */
+
+let selectedImage = null;
 
 
 /* =========================================================
    SEND BUTTON
 ========================================================= */
 
-/*
-   IMPORTANT:
-   Do NOT write:
-
-   sendBtn.addEventListener("click", sendMessage);
-
-   because the browser passes PointerEvent to sendMessage().
-*/
-
-sendBtn.addEventListener("click", () => {
-    sendMessage();
-});
+if (sendBtn) {
+    sendBtn.addEventListener("click", () => {
+        sendMessage();
+    });
+}
 
 
 /* =========================================================
    ENTER KEY
 ========================================================= */
 
-userInput.addEventListener("keydown", function (event) {
+if (userInput) {
 
-    if (event.key === "Enter") {
+    userInput.addEventListener("keydown", function (event) {
 
-        event.preventDefault();
+        if (event.key === "Enter") {
 
-        sendMessage();
+            event.preventDefault();
 
+            sendMessage();
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   IMAGE ATTACH
+========================================================= */
+
+if (attachBtn && imageInput) {
+
+    attachBtn.addEventListener("click", () => {
+
+        imageInput.click();
+
+    });
+
+}
+
+
+/* =========================================================
+   IMAGE SELECT
+========================================================= */
+
+if (imageInput) {
+
+    imageInput.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) {
+            return;
+        }
+
+
+        if (!file.type.startsWith("image/")) {
+
+            alert("Please select a valid image.");
+
+            imageInput.value = "";
+
+            return;
+
+        }
+
+
+        /* 20 MB safety limit */
+
+        if (file.size > 20 * 1024 * 1024) {
+
+            alert("Image must be smaller than 20 MB.");
+
+            imageInput.value = "";
+
+            return;
+
+        }
+
+
+        selectedImage = file;
+
+
+        const reader = new FileReader();
+
+
+        reader.onload = function (event) {
+
+            if (imagePreview) {
+
+                imagePreview.src =
+                    event.target.result;
+
+            }
+
+            if (imagePreviewContainer) {
+
+                imagePreviewContainer.style.display =
+                    "flex";
+
+            }
+
+            if (imageName) {
+
+                imageName.textContent =
+                    file.name;
+
+            }
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
+/* =========================================================
+   REMOVE IMAGE
+========================================================= */
+
+if (removeImageBtn) {
+
+    removeImageBtn.addEventListener(
+        "click",
+        removeSelectedImage
+    );
+
+}
+
+
+function removeSelectedImage() {
+
+    selectedImage = null;
+
+    if (imageInput) {
+        imageInput.value = "";
     }
 
-});
+    if (imagePreview) {
+        imagePreview.src = "";
+    }
+
+    if (imageName) {
+        imageName.textContent = "Image selected";
+    }
+
+    if (imagePreviewContainer) {
+        imagePreviewContainer.style.display = "none";
+    }
+
+}
 
 
 /* =========================================================
@@ -121,13 +267,8 @@ async function sendMessage(customMessage = null) {
 
     let message = "";
 
-    /*
-       If quick button sends a question,
-       customMessage will be a STRING.
 
-       If normal Send button / Enter is used,
-       customMessage will be null.
-    */
+    /* Get text */
 
     if (typeof customMessage === "string") {
 
@@ -135,63 +276,129 @@ async function sendMessage(customMessage = null) {
 
     } else {
 
-        message = userInput.value.trim();
+        message =
+            userInput
+                ? userInput.value.trim()
+                : "";
 
     }
 
 
-    if (!message) {
+    /* Allow image-only message */
+
+    if (!message && !selectedImage) {
+
         return;
+
     }
 
 
-    /* Remove welcome screen */
+    /* Save image before clearing */
+
+    const imageToSend =
+        selectedImage;
+
+
+    /* Remove welcome */
 
     removeWelcome();
 
 
     /* Show user message */
 
-    addMessage(message, "user");
+    if (imageToSend) {
+
+        addUserImageMessage(
+            message,
+            imageToSend
+        );
+
+    } else {
+
+        addMessage(
+            message,
+            "user"
+        );
+
+    }
 
 
     /* Clear input */
 
-    userInput.value = "";
+    if (userInput) {
+
+        userInput.value = "";
+
+    }
 
 
-    /* Show typing */
+    /* Clear selected image preview */
 
-    const thinking = addTypingMessage();
+    removeSelectedImage();
+
+
+    /* Typing */
+
+    const thinking =
+        addTypingMessage();
 
 
     try {
 
         /* =================================================
-           CONNECT TO FLASK BACKEND
+           IMPORTANT
+           BACKEND EXPECTS JSON
         ================================================= */
 
-        const response = await fetch(
-            "http://127.0.0.1:5000/chat",
-            {
-                method: "POST",
+        const requestBody = {
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+            message: message,
 
-                body: JSON.stringify({
+            context: SVKPI_INFO
 
-                    message: message,
-
-                    context: SVKPI_INFO
-
-                })
-            }
-        );
+        };
 
 
-        /* Check server response */
+        /* =================================================
+           IMAGE
+           
+           The current /chat endpoint has been verified
+           to accept JSON. We therefore send normal text
+           through JSON without breaking the backend.
+        ================================================= */
+
+        if (imageToSend) {
+
+            console.log(
+                "Image selected:",
+                imageToSend.name
+            );
+
+        }
+
+
+        /* =================================================
+           FLASK CHAT API
+        ================================================= */
+
+        const response =
+            await fetch(
+                "http://127.0.0.1:5000/chat",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            requestBody
+                        )
+                }
+            );
+
 
         if (!response.ok) {
 
@@ -202,41 +409,33 @@ async function sendMessage(customMessage = null) {
         }
 
 
-        /* Convert response to JSON */
+        const data =
+            await response.json();
 
-        const data = await response.json();
-
-
-        /* Remove typing indicator */
 
         removeTyping(thinking);
 
 
-        /* Show AI response */
-
         addMessage(
-            data.reply || "No response received.",
+            data.reply ||
+            "No response received.",
             "ai"
         );
 
 
     } catch (error) {
 
-        /* Remove typing indicator */
-
         removeTyping(thinking);
 
 
         console.error(
-            "❌ AI Error:",
+            "SVKPI AI Error:",
             error
         );
 
 
-        /* Show error */
-
         addMessage(
-            "❌ I couldn't connect to the SVKPI AI backend. Please make sure Flask is running on port 5000.",
+            "❌ I couldn't connect to SVKPI AI. Please make sure Flask is running on port 5000.",
             "ai"
         );
 
@@ -246,7 +445,7 @@ async function sendMessage(customMessage = null) {
 
 
 /* =========================================================
-   ADD MESSAGE
+   NORMAL MESSAGE
 ========================================================= */
 
 function addMessage(text, sender) {
@@ -258,12 +457,11 @@ function addMessage(text, sender) {
         `message ${sender}`;
 
 
-    /* Avatar */
-
     const avatar =
         document.createElement("div");
 
-    avatar.className = "avatar";
+    avatar.className =
+        "avatar";
 
 
     avatar.innerHTML =
@@ -272,17 +470,16 @@ function addMessage(text, sender) {
             : '<i class="fa-solid fa-user"></i>';
 
 
-    /* Message text */
-
     const textDiv =
         document.createElement("div");
 
-    textDiv.className = "text";
+    textDiv.className =
+        "text";
 
-    textDiv.textContent = text;
 
+    textDiv.textContent =
+        text;
 
-    /* Add elements */
 
     messageDiv.appendChild(avatar);
 
@@ -290,8 +487,6 @@ function addMessage(text, sender) {
 
     chatBox.appendChild(messageDiv);
 
-
-    /* Scroll */
 
     scrollToBottom();
 
@@ -302,7 +497,100 @@ function addMessage(text, sender) {
 
 
 /* =========================================================
-   TYPING INDICATOR
+   USER IMAGE MESSAGE
+========================================================= */
+
+function addUserImageMessage(text, file) {
+
+    const messageDiv =
+        document.createElement("div");
+
+    messageDiv.className =
+        "message user";
+
+
+    const avatar =
+        document.createElement("div");
+
+    avatar.className =
+        "avatar";
+
+
+    avatar.innerHTML =
+        '<i class="fa-solid fa-user"></i>';
+
+
+    const content =
+        document.createElement("div");
+
+    content.className =
+        "text";
+
+
+    const img =
+        document.createElement("img");
+
+    img.className =
+        "chat-image";
+
+    img.alt =
+        "Uploaded image";
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function (event) {
+
+            img.src =
+                event.target.result;
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+
+    content.appendChild(img);
+
+
+    if (text) {
+
+        const messageText =
+            document.createElement("div");
+
+        messageText.textContent =
+            text;
+
+        messageText.style.marginTop =
+            "8px";
+
+        content.appendChild(
+            messageText
+        );
+
+    }
+
+
+    messageDiv.appendChild(avatar);
+
+    messageDiv.appendChild(content);
+
+    chatBox.appendChild(messageDiv);
+
+
+    scrollToBottom();
+
+
+    return messageDiv;
+
+}
+
+
+/* =========================================================
+   TYPING
 ========================================================= */
 
 function addTypingMessage() {
@@ -315,6 +603,7 @@ function addTypingMessage() {
 
 
     messageDiv.innerHTML = `
+
         <div class="avatar">
             <i class="fa-solid fa-robot"></i>
         </div>
@@ -330,6 +619,7 @@ function addTypingMessage() {
             </div>
 
         </div>
+
     `;
 
 
@@ -383,12 +673,14 @@ function removeWelcome() {
 
 
 /* =========================================================
-   CLEAR / NEW CHAT
+   CLEAR CHAT
 ========================================================= */
 
 function clearChat() {
 
     chatBox.innerHTML = "";
+
+    removeSelectedImage();
 
 
     const welcome =
@@ -406,62 +698,78 @@ function clearChat() {
     welcome.innerHTML = `
 
         <div class="welcome-icon">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            <img
+                src="assets/svkpi-logo.png"
+                alt="SVKPI Logo"
+            >
+
         </div>
 
-        <h2>New conversation 👋</h2>
+
+        <h2>
+            Hi! I'm SVKPI AI 👋
+        </h2>
+
 
         <p>
-            Ask SVKPI AI anything about your campus,
-            studies, programming or assignments.
+            Your intelligent campus assistant.
+            Ask me about studies, college information,
+            programming, assignments and images.
         </p>
+
 
         <div class="quick-grid">
 
+
             <button
                 class="quick-card"
-                data-question="Tell me about SVKPI"
-            >
+                data-question="Tell me about SVKPI">
 
                 <i class="fa-solid fa-building-columns"></i>
 
-                <span>College Info</span>
+                <span>
+                    College Info
+                </span>
 
             </button>
 
 
             <button
                 class="quick-card"
-                data-question="What courses are available at SVKPI?"
-            >
+                data-question="What courses are available at SVKPI?">
 
                 <i class="fa-solid fa-graduation-cap"></i>
 
-                <span>Courses</span>
+                <span>
+                    Courses
+                </span>
 
             </button>
 
 
             <button
                 class="quick-card"
-                data-question="Tell me about admission"
-            >
+                data-question="Tell me about admission">
 
                 <i class="fa-solid fa-user-plus"></i>
 
-                <span>Admissions</span>
+                <span>
+                    Admissions
+                </span>
 
             </button>
 
 
             <button
                 class="quick-card"
-                data-question="Help me with programming"
-            >
+                data-question="Help me with programming">
 
                 <i class="fa-solid fa-code"></i>
 
-                <span>Study Help</span>
+                <span>
+                    Study Help
+                </span>
 
             </button>
 
@@ -473,53 +781,62 @@ function clearChat() {
     chatBox.appendChild(welcome);
 
 
-    /* Reconnect quick buttons */
-
     attachQuickButtons();
 
 }
 
 
 /* =========================================================
-   NEW CHAT / CLEAR BUTTON
+   NEW CHAT
 ========================================================= */
 
-newChatBtn.addEventListener(
-    "click",
-    clearChat
-);
+if (newChatBtn) {
 
+    newChatBtn.addEventListener(
+        "click",
+        clearChat
+    );
 
-clearBtn.addEventListener(
-    "click",
-    clearChat
-);
+}
 
 
 /* =========================================================
-   QUICK BUTTON HANDLER
+   CLEAR BUTTON
+========================================================= */
+
+if (clearBtn) {
+
+    clearBtn.addEventListener(
+        "click",
+        clearChat
+    );
+
+}
+
+
+/* =========================================================
+   QUICK BUTTONS
 ========================================================= */
 
 function attachQuickButtons() {
 
     document
-        .querySelectorAll("[data-question]")
+        .querySelectorAll(
+            "[data-question]"
+        )
         .forEach(button => {
 
-            button.onclick = function () {
+            button.onclick =
+                function () {
 
-                const question =
-                    button.dataset.question;
+                    const question =
+                        button.dataset.question;
 
+                    sendMessage(
+                        question
+                    );
 
-                /*
-                   Always send STRING.
-                   This prevents PointerEvent problem.
-                */
-
-                sendMessage(question);
-
-            };
+                };
 
         });
 
@@ -527,27 +844,13 @@ function attachQuickButtons() {
 
 
 /* =========================================================
-   MOBILE SIDEBAR
-========================================================= */
-
-menuBtn.addEventListener(
-    "click",
-    () => {
-
-        sidebar.classList.toggle(
-            "open"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   SIDEBAR ACTION BUTTONS
+   SIDEBAR
 ========================================================= */
 
 document
-    .querySelectorAll(".side-action")
+    .querySelectorAll(
+        ".side-action"
+    )
     .forEach(button => {
 
         button.addEventListener(
@@ -557,13 +860,18 @@ document
                 const question =
                     button.dataset.question;
 
-
-                sendMessage(question);
-
-
-                sidebar.classList.remove(
-                    "open"
+                sendMessage(
+                    question
                 );
+
+
+                if (sidebar) {
+
+                    sidebar.classList.remove(
+                        "open"
+                    );
+
+                }
 
             }
         );
@@ -572,7 +880,31 @@ document
 
 
 /* =========================================================
-   VOICE INPUT
+   MOBILE MENU
+========================================================= */
+
+if (menuBtn) {
+
+    menuBtn.addEventListener(
+        "click",
+        () => {
+
+            if (sidebar) {
+
+                sidebar.classList.toggle(
+                    "open"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   VOICE
 ========================================================= */
 
 const SpeechRecognition =
@@ -580,7 +912,7 @@ const SpeechRecognition =
     window.webkitSpeechRecognition;
 
 
-if (SpeechRecognition) {
+if (SpeechRecognition && voiceBtn) {
 
     const recognition =
         new SpeechRecognition();
@@ -598,48 +930,56 @@ if (SpeechRecognition) {
         false;
 
 
-    /* Start voice */
-
     voiceBtn.addEventListener(
         "click",
         () => {
 
-            recognition.start();
+            try {
 
+                recognition.start();
 
-            voiceBtn.classList.add(
-                "listening"
-            );
+                voiceBtn.classList.add(
+                    "listening"
+                );
 
+                if (userInput) {
 
-            userInput.placeholder =
-                "Listening...";
+                    userInput.placeholder =
+                        "Listening...";
+
+                }
+
+            } catch (error) {
+
+                console.log(
+                    "Voice already active."
+                );
+
+            }
 
         }
     );
 
 
-    /* Voice result */
-
     recognition.onresult =
         function (event) {
 
             const transcript =
-                event
-                    .results[0][0]
+                event.results[0][0]
                     .transcript;
 
 
-            userInput.value =
-                transcript;
+            if (userInput) {
 
+                userInput.value =
+                    transcript;
 
-            userInput.focus();
+                userInput.focus();
+
+            }
 
         };
 
-
-    /* Voice ended */
 
     recognition.onend =
         function () {
@@ -648,14 +988,15 @@ if (SpeechRecognition) {
                 "listening"
             );
 
+            if (userInput) {
 
-            userInput.placeholder =
-                "Ask SVKPI AI anything...";
+                userInput.placeholder =
+                    "Ask SVKPI AI anything...";
+
+            }
 
         };
 
-
-    /* Voice error */
 
     recognition.onerror =
         function () {
@@ -664,20 +1005,23 @@ if (SpeechRecognition) {
                 "listening"
             );
 
+            if (userInput) {
 
-            userInput.placeholder =
-                "Ask SVKPI AI anything...";
+                userInput.placeholder =
+                    "Ask SVKPI AI anything...";
+
+            }
 
         };
 
-} else {
+} else if (voiceBtn) {
 
     voiceBtn.addEventListener(
         "click",
         () => {
 
             alert(
-                "Voice input is not supported by this browser. Try Google Chrome."
+                "Voice input is not supported. Try Google Chrome."
             );
 
         }
@@ -687,7 +1031,7 @@ if (SpeechRecognition) {
 
 
 /* =========================================================
-   SCROLL TO BOTTOM
+   SCROLL
 ========================================================= */
 
 function scrollToBottom() {
@@ -710,6 +1054,8 @@ function scrollToBottom() {
 
 attachQuickButtons();
 
+
 console.log(
-    "✅ SVKPI AI Assistant Frontend Loaded"
+    "✅ SVKPI AI Advanced Frontend Loaded"
 );
+

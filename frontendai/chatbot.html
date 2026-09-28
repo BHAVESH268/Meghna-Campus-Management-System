@@ -172,24 +172,98 @@
 
                 </div>
 
-                <div class="input-wrapper">
+<div class="input-wrapper">
 
-                    <button class="voice-btn" id="voiceBtn" title="Voice input">
-                        <i class="fa-solid fa-microphone"></i>
-                    </button>
+    <!-- IMAGE UPLOAD -->
+    <button
+        class="attach-btn"
+         
+        id="attachBtn"
+        title="Upload image"
+        type="button">
 
-                    <input
-                        type="text"
-                        id="userInput"
-                        autocomplete="off"
-                        placeholder="Ask SVKPI AI anything..."
-                    >
+        <i class="fa-solid fa-paperclip"></i>
 
-                    <button class="send-btn" id="sendBtn" title="Send">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
+    </button>
 
-                </div>
+    <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+        hidden
+    >
+
+    <!-- VOICE -->
+    <button
+        class="voice-btn"
+        id="voiceBtn"
+        title="Voice input"
+        type="button">
+
+        <i class="fa-solid fa-microphone"></i>
+
+    </button>
+
+    <!-- TEXT -->
+    <input
+        type="text"
+        id="userInput"
+        autocomplete="off"
+        placeholder="Ask SVKPI AI anything..."
+    >
+
+    <!-- SEND -->
+    <button
+        class="send-btn"
+        id="sendBtn"
+        title="Send"
+        type="button">
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+    </button>
+
+</div>
+
+
+<!-- IMAGE PREVIEW -->
+
+<div
+    class="image-preview-container"
+    id="imagePreviewContainer"
+    style="display:none;">
+
+    <div class="image-preview">
+
+        <img
+            id="imagePreview"
+            src=""
+            alt="Selected image"
+        >
+
+        <button
+            id="removeImageBtn"
+            class="remove-image-btn"
+            type="button"
+            title="Remove image">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div class="image-preview-info">
+
+        <i class="fa-solid fa-image"></i>
+
+        <span id="imageName">
+            Image selected
+        </span>
+
+    </div>
+
+</div>
 
                 <div class="input-note">
                     <i class="fa-solid fa-lock"></i>

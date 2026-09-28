@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Material | SVKPI</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: linear-gradient(180deg, #071a3d, #102b5c);
+            padding: 25px 18px;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 10px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #15bcdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 21px;
+        }
+
+        .logo-text h2 {
+            color: white;
+            font-size: 18px;
+        }
+
+        .logo-text p {
+            color: #aebbd2;
+            font-size: 11px;
+        }
+
+        .menu {
+            margin-top: 25px;
+        }
+
+        .menu-title {
+            color: #8192b0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0 12px 10px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #d8e1f0;
+            padding: 13px 14px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: rgba(21,188,223,0.18);
+            color: #15bcdf;
+        }
+
+        .menu a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 25px;
+            left: 18px;
+            right: 18px;
+        }
+
+        .logout a {
+            color: #ffb6b6;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        /* ================= TOPBAR ================= */
+
+        .topbar {
+            height: 75px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 35px;
+            border-bottom: 1px solid #e8edf4;
+        }
+
+        .page-title h1 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .page-title p {
+            color: #7d8798;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .student-mini {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .student-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #15bcdf;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .student-mini strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .student-mini span {
+            font-size: 11px;
+            color: #7d8798;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .content {
+            padding: 30px 35px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 20px;
+        }
+
+        .section-title span {
+            color: #7d8798;
+            font-size: 11px;
+        }
+
+        /* ================= MATERIAL CARDS ================= */
+
+        .materials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .material-card {
+            background: white;
+            border: 1px solid #e7edf4;
+            border-radius: 15px;
+            padding: 22px;
+            transition: 0.2s;
+        }
+
+        .material-card:hover {
+            transform: translateY(-3px);
+            border-color: #15bcdf;
+            box-shadow: 0 8px 25px rgba(20,40,70,0.08);
+        }
+
+        .material-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #edf9fc;
+            color: #15abc9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            margin-bottom: 16px;
+        }
+
+        .material-card h3 {
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .material-card p {
+            color: #7d8798;
+            font-size: 11px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .material-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #15bcdf;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .material-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1100px) {
+
+            .materials {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+                width: 75px;
+                padding: 20px 10px;
+            }
+
+            .logo-text,
+            .menu-title,
+            .menu a span {
+                display: none;
+            }
+
+            .logo-area {
+                justify-content: center;
+                padding: 5px 0 20px;
+            }
+
+            .menu a {
+                justify-content: center;
+            }
+
+            .logout {
+                left: 10px;
+                right: 10px;
+            }
+
+            .main {
+                margin-left: 75px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .materials {
+                grid-template-columns: 1fr;
+            }
+
+            .student-mini > div:last-child {
+                display: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="logo-text">
+                <h2>SVKPI</h2>
+                <p>Student Portal</p>
+            </div>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <div class="menu-title">Student Menu</div>
+
+            <a href="student-dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>My Result</span>
+            </a>
+
+            <a href="https://gtu.ac.in/circulars" target="_blank">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Circular / Notice</span>
+            </a>
+
+            <a href="https://www.student.gtu.ac.in/" target="_blank">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>GTU Result</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-file-pen"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="study-material.html" class="active">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Study Material</span>
+            </a>
+
+            <a href="https://timetable.gtu.ac.in/" target="_blank">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Timetable</span>
+            </a>
+
+            <a href="https://timetable.gtu.ac.in/centcode.aspx" target="_blank">
+                <i class="fa-solid fa-flask"></i>
+                <span>Practical / Viva</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-bell"></i>
+                <span>Announcements</span>
+            </a>
+
+        </nav>
+
+
+        <div class="logout">
+
+            <a href="#">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="page-title">
+
+                <h1>Study Material</h1>
+
+                <p>SVKPI Student Portal</p>
+
+            </div>
+
+
+            <div class="student-mini">
+
+                <div class="student-avatar">
+                    S
+                </div>
+
+                <div>
+                    <strong>Student</strong>
+                    <span>Computer Engineering</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+            <div class="section-title">
+
+                <h2>Study Material</h2>
+
+                <span>Computer Engineering</span>
+
+            </div>
+
+
+            <div class="materials">
+
+
+                <!-- SOFTWARE TESTING -->
+
+                <div class="material-card">
+
+                    <div class="material-icon">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <h3>Software Testing</h3>
+
+                    <p>
+                        Notes, theory and practical study material
+                        for Software Testing.
+                    </p>
+
+                    <a href="#" class="material-btn">
+                        <i class="fa-solid fa-folder-open"></i>
+                        Open Material
+                    </a>
+
+                </div>
+
+
+                <!-- INFORMATION SECURITY -->
+
+                <div class="material-card">
+
+                    <div class="material-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <h3>Information Security</h3>
+
+                    <p>
+                        Notes, theory and practical study material
+                        for Information Security.
+                    </p>
+
+                    <a href="#" class="material-btn">
+                        <i class="fa-solid fa-folder-open"></i>
+                        Open Material
+                    </a>
+
+                </div>
+
+
+                <!-- TYPESCRIPT -->
+
+                <div class="material-card">
+
+                    <div class="material-icon">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+
+                    <h3>TypeScript</h3>
+
+                    <p>
+                        Notes, practical programs and study material
+                        for TypeScript.
+                    </p>
+
+                    <a href="#" class="material-btn">
+                        <i class="fa-solid fa-folder-open"></i>
+                        Open Material
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

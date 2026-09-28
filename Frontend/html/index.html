@@ -1,536 +1,729 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+```
+<title>SVET Campus Management System</title>
 
-    <title>SVET | Swami Vivekanand Education Trust</title>
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link
-        rel="stylesheet"
-        href="../css/style.css"
-    >
+<!-- Font Awesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-    >
+<!-- Main Website CSS -->
+<link rel="stylesheet" href="../css/style.css">
+```
 
 </head>
 
-
 <body>
 
+```
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+    <div class="nav-container">
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+        <!-- Logo -->
+        <a href="index.html" class="brand">
+            <img src="file:///C:/Users/HP/Downloads/SVET%20logo.jpeg"
+                 alt="SVET Logo"
+                 class="brand-logo">
 
-<header>
+            <div class="brand-text">
+                <span class="brand-title">SVET</span>
+                <span class="brand-subtitle">
+                    SVET Campus Management System
+                </span>
+            </div>
+        </a>
 
-    <nav class="navbar">
+        <!-- Desktop Navigation -->
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="colleges.html">Colleges & Schools</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="contact.html">Contact</a>
+        </nav>
 
+        <!-- Mobile Button -->
+        <button class="menu-btn"
+                id="menuBtn"
+                aria-label="Open navigation menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <!-- LOGO -->
+    </div>
 
-        <div class="logo">
-
-            <img
-                src="C:\Users\HP\Downloads\SVET logo.jpeg"
-                alt="SVET College Logo"
-            >
-
-            <h2>SVET</h2>
-
-        </div>
-
-
-        <!-- NAVIGATION -->
-
-        <ul class="nav-links">
-
-            <li>
-                <a
-                    href="index.html"
-                    class="active"
-                >
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="about.html">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a href="colleges.html">
-                    Colleges & Schools
-                </a>
-            </li>
-
-            <li>
-                <a href="facilities.html">
-                    Facilities
-                </a>
-            </li>
-
-            <li>
-                <a href="contact.html">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
-
-
-        <!-- LOGIN -->
-
-        <div class="login-btn">
-
-            <a href="login.html">
-                Login
-            </a>
-
-        </div>
-
-    </nav>
-
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="colleges.html">Colleges & Schools</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </header>
 
 
+<!-- ================= HERO ================= -->
+<main>
 
-<!-- =========================================================
-     HERO SECTION
-========================================================= -->
+    <section class="hero">
 
-<section class="hero">
+        <div class="hero-overlay"></div>
 
+        <div class="hero-container">
 
-    <!-- CAMPUS BACKGROUND -->
+            <div class="hero-content">
 
-    <div class="hero-campus-bg">
-
-        <img
-            src="images/campus-hero.png"
-            alt="SVET Campus"
-        >
-
-
-        <!-- MOVING LIGHT -->
-
-        <div class="campus-light-effect"></div>
-
-
-        <!-- FLOATING LEAVES -->
-
-        <span class="floating-leaf leaf-1">
-            🍃
-        </span>
-
-        <span class="floating-leaf leaf-2">
-            🍃
-        </span>
-
-        <span class="floating-leaf leaf-3">
-            🍃
-        </span>
-
-        <span class="floating-leaf leaf-4">
-            🍃
-        </span>
-
-        <span class="floating-leaf leaf-5">
-            🍃
-        </span>
-
-
-        <!-- CAMPUS LIGHT PARTICLES -->
-
-        <span class="campus-particle particle-1"></span>
-
-        <span class="campus-particle particle-2"></span>
-
-        <span class="campus-particle particle-3"></span>
-
-        <span class="campus-particle particle-4"></span>
-
-        <span class="campus-particle particle-5"></span>
-
-    </div>
-
-
-
-    <!-- HERO CONTENT -->
-
-    <div class="hero-content">
-
-        <div class="hero-text">
-
-
-            <!-- BADGE -->
-
-            <span class="hero-badge">
-
-                <i class="fa-solid fa-graduation-cap"></i>
-
-                SVET Campus Portal
-
-            </span>
-
-
-            <!-- TITLE -->
-
-            <h1>
-
-                Swami Vivekanand
-
-                <span>
-                    Education Trust
+                <span class="hero-badge">
+                    <i class="fa-solid fa-building-columns"></i>
+                    Swami Vivekanand Education Trust
                 </span>
 
-            </h1>
-
-
-            <!-- DESCRIPTION -->
-
-            <p>
-
-                A Premier Educational Trust Offering Quality Education
-                Through Schools and Colleges.
-
-            </p>
-
-
-            <!-- BUTTONS -->
-
-            <div class="buttons">
-
-
-                <a
-                    href="login.html"
-                    class="btn"
-                >
-
-                    <i class="fa-solid fa-user-graduate"></i>
-
-                    Student Login
-
-                </a>
-
-
-                <a
-                    href="about.html"
-                    class="btn2"
-                >
-
-                    Explore Campus
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- EXPLORE -->
-
-    <a
-        href="#features"
-        class="hero-scroll"
-    >
-
-        <span>
-            Explore
-        </span>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-    </a>
-
-
-</section>
-
-
-
-<!-- =========================================================
-     FEATURES
-========================================================= -->
-
-<section
-    class="features"
-    id="features"
->
-
-
-    <div class="section-heading">
-
-        <span>
-            SMART CAMPUS
-        </span>
-
-        <h2>
-            Our Features
-        </h2>
-
-        <p>
-
-            Everything you need for a connected and modern
-            campus experience.
-
-        </p>
-
-    </div>
-
-
-
-    <div class="feature-container">
-
-
-        <!-- CARD 1 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-
-                <i class="fa-solid fa-user-graduate"></i>
-
-            </div>
-
-            <h3>
-                Student Portal
-            </h3>
-
-            <p>
-                Attendance, Result, Fees and Profile.
-            </p>
-
-        </div>
-
-
-
-        <!-- CARD 2 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-
-                <i class="fa-solid fa-chalkboard-user"></i>
-
-            </div>
-
-            <h3>
-                Faculty Portal
-            </h3>
-
-            <p>
-                Manage Attendance and Results.
-            </p>
-
-        </div>
-
-
-
-        <!-- CARD 3 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-
-                <i class="fa-solid fa-building-columns"></i>
-
-            </div>
-
-            <h3>
-                Administration
-            </h3>
-
-            <p>
-                Manage College Activities.
-            </p>
-
-        </div>
-
-
-
-        <!-- CARD 4 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-
-                <i class="fa-solid fa-book"></i>
-
-            </div>
-
-            <h3>
-                Library
-            </h3>
-
-            <p>
-                Digital Library Management.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     NOTICE SECTION
-========================================================= -->
-
-<section class="notice">
-
-
-    <div class="section-heading">
-
-        <span>
-            UPDATES
-        </span>
-
-        <h2>
-            Latest Notices
-        </h2>
-
-        <p>
-
-            Stay updated with important campus announcements.
-
-        </p>
-
-    </div>
-
-
-
-    <ul>
-
-
-        <li>
-
-            <i class="fa-solid fa-calendar-days"></i>
-
-            <span>
-                Semester Examination Schedule
-            </span>
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </li>
-
-
-        <li>
-
-            <i class="fa-solid fa-bullhorn"></i>
-
-            <span>
-                GTU Circular Updates
-            </span>
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </li>
-
-
-        <li>
-
-            <i class="fa-solid fa-briefcase"></i>
-
-            <span>
-                Campus Placement Drive
-            </span>
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </li>
-
-
-        <li>
-
-            <i class="fa-solid fa-laptop-code"></i>
-
-            <span>
-                Annual Tech Fest Registration
-            </span>
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </li>
-
-
-    </ul>
-
-</section>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-
-    <div class="footer-content">
-
-
-        <div class="footer-logo">
-
-
-            <div class="footer-logo-icon">
-
-                SVET
-
-            </div>
-
-
-            <div>
-
-                <h3>
-
-                    Shree Vasudevbhai & Kantibhai Patel
-                    Institute of Engineering
-
-                </h3>
+                <h1>
+                    Welcome to
+                    <span>SVET Campus</span>
+                </h1>
 
                 <p>
-                    Kadi, Gujarat
+                    A Premier Educational Trust Offering Quality Education
+                    Through Schools and Colleges.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="colleges.html" class="btn btn-primary">
+                        Explore Colleges
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="about.html" class="btn btn-outline">
+                        Discover SVET
+                    </a>
+                </div>
+
+                <!-- Small Information -->
+                <div class="hero-info">
+
+                    <div class="hero-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Campus</strong>
+                            <span>Kadi, Mehsana, Gujarat</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-info-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>
+                            <strong>Education</strong>
+                            <span>Schools & Colleges</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WELCOME SECTION ================= -->
+    <section class="section welcome-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="section-label">WELCOME TO SVET</span>
+
+                <h2>
+                    Education, Campus & Opportunities
+                    <span>Under One Platform</span>
+                </h2>
+
+                <p>
+                    Explore SVET's educational institutions, campus
+                    facilities and important information through one
+                    connected digital platform.
+                </p>
+            </div>
+
+
+            <div class="feature-grid">
+
+                <!-- Card 1 -->
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+
+                    <h3>Schools & Colleges</h3>
+
+                    <p>
+                        Explore the educational institutions and
+                        departments available under SVET.
+                    </p>
+
+                    <a href="colleges.html" class="card-link">
+                        View Institutions
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <h3>Campus Facilities</h3>
+
+                    <p>
+                        Discover the facilities and services available
+                        across the campus.
+                    </p>
+
+                    <a href="facilities.html" class="card-link">
+                        Explore Facilities
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- Card 3 -->
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+
+                    <h3>About SVET</h3>
+
+                    <p>
+                        Learn about the trust, its educational vision
+                        and the campus.
+                    </p>
+
+                    <a href="about.html" class="card-link">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT PREVIEW ================= -->
+    <section class="section about-preview">
+
+        <div class="container about-grid">
+
+            <div class="about-image">
+
+                <div class="image-frame">
+                    <img src="file:///C:/Users/HP/Downloads/SVET%20logo.jpeg"
+                         alt="SVET Educational Campus">
+
+                    <div class="image-badge">
+                        <i class="fa-solid fa-award"></i>
+
+                        <div>
+                            <strong>SVET</strong>
+                            <span>Quality Education</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <span class="section-label">ABOUT SVET</span>
+
+                <h2>
+                    Building a Strong
+                    <span>Educational Community</span>
+                </h2>
+
+                <p>
+                    Swami Vivekanand Education Trust provides quality
+                    education through its schools and colleges at the
+                    SVET campus in Kadi, Gujarat.
+                </p>
+
+                <p>
+                    The campus brings together educational institutions,
+                    academic departments and supporting facilities under
+                    one educational environment.
+                </p>
+
+                <a href="about.html" class="btn btn-primary">
+                    About SVET
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INSTITUTIONS PREVIEW ================= -->
+    <section class="section institutions-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    OUR INSTITUTIONS
+                </span>
+
+                <h2>
+                    Explore Colleges &
+                    <span>Schools</span>
+                </h2>
+
+                <p>
+                    Explore the different educational institutions
+                    available through SVET.
                 </p>
 
             </div>
 
 
+            <div class="institution-grid">
+
+                <div class="institution-card">
+                    <div class="institution-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <h3>Diploma College</h3>
+
+                    <p>
+                        Technical education and diploma programs.
+                    </p>
+
+                    <a href="colleges.html">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+                <div class="institution-card">
+                    <div class="institution-icon">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+
+                    <h3>B.Sc Nursing</h3>
+
+                    <p>
+                        Nursing education and professional learning.
+                    </p>
+
+                    <a href="colleges.html">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+                <div class="institution-card">
+                    <div class="institution-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <h3>BBA</h3>
+
+                    <p>
+                        Business and management education.
+                    </p>
+
+                    <a href="colleges.html">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+                <div class="institution-card">
+                    <div class="institution-icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+
+                    <h3>Schools</h3>
+
+                    <p>
+                        School-level educational institutions.
+                    </p>
+
+                    <a href="colleges.html">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="center-button">
+                <a href="colleges.html" class="btn btn-secondary">
+                    View All Colleges & Schools
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FACILITIES PREVIEW ================= -->
+    <section class="section facilities-preview">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    CAMPUS FACILITIES
+                </span>
+
+                <h2>
+                    A Campus Designed for
+                    <span>Student Life</span>
+                </h2>
+
+                <p>
+                    Explore the facilities available across the SVET
+                    campus.
+                </p>
+
+            </div>
+
+
+            <div class="facility-grid">
+
+                <div class="facility-card">
+                    <i class="fa-solid fa-house"></i>
+                    <h3>Hostels</h3>
+                    <p>
+                        Residential facilities available on campus.
+                    </p>
+                </div>
+
+
+                <div class="facility-card">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Canteen</h3>
+                    <p>
+                        Campus food and refreshment facility.
+                    </p>
+                </div>
+
+
+                <div class="facility-card">
+                    <i class="fa-solid fa-building"></i>
+                    <h3>Campus Infrastructure</h3>
+                    <p>
+                        Educational and supporting campus infrastructure.
+                    </p>
+                </div>
+
+
+                <div class="facility-card">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Student Environment</h3>
+                    <p>
+                        An educational environment for learning and growth.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="center-button">
+                <a href="facilities.html" class="btn btn-primary">
+                    View All Facilities
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT CTA ================= -->
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-content">
+
+                <span class="section-label light">
+                    GET IN TOUCH
+                </span>
+
+                <h2>
+                    Have Questions About SVET?
+                </h2>
+
+                <p>
+                    Get the important contact information and
+                    campus details from our Contact page.
+                </p>
+
+                <a href="contact.html" class="btn btn-light">
+                    Contact SVET
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                <img src="file:///C:/Users/HP/Downloads/SVET%20logo.jpeg"
+                     alt="SVET Logo">
+
+                <div>
+                    <strong>SVET</strong>
+                    <span>Smart Campus</span>
+                </div>
+            </div>
+
+            <p>
+                A Premier Educational Trust Offering Quality Education
+                Through Schools and Colleges.
+            </p>
+
         </div>
 
 
-        <p class="footer-copy">
+        <!-- Quick Links -->
+        <div class="footer-column">
 
-            Campus Management System
+            <h3>Quick Links</h3>
 
-        </p>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="colleges.html">Colleges & Schools</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="contact.html">Contact</a>
 
+        </div>
+
+
+        <!-- Contact -->
+        <div class="footer-column">
+
+            <h3>Contact</h3>
+
+            <a href="tel:02764240064">
+                <i class="fa-solid fa-phone"></i>
+                02764 240064
+            </a>
+
+            <a href="mailto:svetcollegekadi@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                svetcollegekadi@gmail.com
+            </a>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Meghna Chatralaya Campus,
+                Kadi-Kalyanpura Road,
+                Nanikadi, Gujarat
+            </p>
+
+        </div>
 
     </div>
 
 
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 SVET Smart Campus Management System.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
 </footer>
 
 
-</body>
+<!-- ================= JAVASCRIPT ================= -->
+<script>
 
+    // Mobile Menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", function () {
+
+        mobileMenu.classList.toggle("show");
+
+        const icon = menuBtn.querySelector("i");
+
+        if (mobileMenu.classList.contains("show")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+        } else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        }
+
+    });
+
+
+    // Close mobile menu after clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    mobileLinks.forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            mobileMenu.classList.remove("show");
+
+            const icon = menuBtn.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
+
+    // Navbar shadow while scrolling
+    window.addEventListener("scroll", function() {
+
+        const navbar = document.getElementById("navbar");
+
+        if (window.scrollY > 20) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+
+    });
+
+</script>
+
+<!-- ================= SVKPI AI ASSISTANT ================= -->
+
+<button class="svkpi-ai-button" id="svkpiAiButton" type="button">
+    <i class="fa-solid fa-robot"></i>
+    <span>SVKPI AI</span>
+</button>
+
+<div class="svkpi-ai-chat" id="svkpiAiChat">
+
+    <div class="svkpi-ai-header">
+
+        <div class="svkpi-ai-brand">
+            <div class="svkpi-ai-logo">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <div>
+                <strong>SVKPI AI Assistant</strong>
+                <span>Campus Copilot</span>
+            </div>
+        </div>
+
+        <button
+            class="svkpi-ai-close"
+            id="svkpiAiClose"
+            type="button"
+            aria-label="Close AI Assistant">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <div class="svkpi-ai-messages" id="svkpiAiMessages">
+
+        <div class="svkpi-ai-message bot">
+            <div class="svkpi-ai-message-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <div class="svkpi-ai-message-content">
+                Hello! 👋<br>
+                I am <strong>SVKPI AI Assistant</strong>.<br>
+                Ask me about SVET, SVKPI, colleges, courses,
+                campus facilities or admissions.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="svkpi-ai-input-area">
+
+        <input
+            type="text"
+            id="svkpiAiInput"
+            placeholder="Ask SVKPI AI..."
+            autocomplete="off">
+
+        <button
+            class="svkpi-ai-send"
+            id="svkpiAiSend"
+            type="button"
+            aria-label="Send message">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../js/svkpi-ai.js"></script>
+```
+
+</body>
 </html>

@@ -1,0 +1,263 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>SVKPI Campus Portal - Student Registration</title>
+
+        <link rel="stylesheet" href="../css/registration.css">
+    </head>
+
+    <body>
+
+        <div class="registration-container">
+
+            <!-- LEFT SIDE -->
+            <div class="registration-left">
+
+                <div class="brand">
+                    <img src="C:\Users\HP\Downloads\SVKPIE LOGO.png" alt="SVKPIE Logo">
+
+                    <div>
+                        <h2>SVKPI Campus Portal</h2>
+                        <p>Shree Vasudevbhai & Kantibhai Patel Institute of Engineering</p>
+                    </div>
+                </div>
+
+                <div class="welcome-section">
+                    <span class="badge">STUDENT PORTAL</span>
+
+                    <h1>Create Your<br>
+                        <span>Student Account</span>
+                    </h1>
+
+                    <p>
+                        Register yourself to access the SVKPI Campus Management
+                        System and student services.
+                    </p>
+
+                    <div class="features">
+
+                        <div class="feature">
+                            <div class="icon">🎓</div>
+                            <div>
+                                <h3>Student Access</h3>
+                                <p>Access your campus services.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="icon">🔐</div>
+                            <div>
+                                <h3>Secure Account</h3>
+                                <p>Your account is protected.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="icon">📚</div>
+                            <div>
+                                <h3>Academic Services</h3>
+                                <p>Connect with your academic portal.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <div class="registration-right">
+
+                <div class="form-header">
+                    <h2>Student Registration</h2>
+                    <p>Create your SVKPI Campus Portal account</p>
+                </div>
+
+                <form id="registrationForm">
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label>Enrollment Number</label>
+                            <input
+                                type="text"
+                                id="enrollment"
+                                placeholder="Enter enrollment number"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label>Mobile Number</label>
+                            <input
+                                type="tel"
+                                id="mobile"
+                                placeholder="Enter mobile number"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+                            <label>Department</label>
+
+                            <select id="department" required>
+
+                                <option value="">Select Department</option>
+
+                                <option value="Computer Engineering">
+                                    Computer Engineering
+                                </option>
+
+                                <option value="Mechanical Engineering">
+                                    Mechanical Engineering
+                                </option>
+
+                                <option value="Civil Engineering">
+                                    Civil Engineering
+                                </option>
+
+                                <option value="Electrical Engineering">
+                                    Electrical Engineering
+                                </option>
+
+                                <option value="Automobile Engineering">
+                                    Automobile Engineering
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Semester</label>
+
+                            <select id="semester" required>
+
+                                <option value="">Select Semester</option>
+
+                                <option value="1">Semester 1</option>
+                                <option value="2">Semester 2</option>
+                                <option value="3">Semester 3</option>
+                                <option value="4">Semester 4</option>
+                                <option value="5">Semester 5</option>
+                                <option value="6">Semester 6</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+
+                            <label>Password</label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Confirm Password</label>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="terms">
+
+                        <label>
+
+                            <input type="checkbox" id="terms" required>
+
+                            I agree to the SVKPI Campus Portal
+                            <span>Terms & Conditions</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <button type="submit" class="register-btn">
+
+                        Create Student Account
+
+                    </button>
+
+
+                    <div class="login-link">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login Here
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <script src="registration.js"></script>
+
+    </body>
+
+    </html>

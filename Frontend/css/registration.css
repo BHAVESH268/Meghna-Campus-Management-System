@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 32, 65, 0.55),
+            rgba(0, 32, 65, 0.55)
+        ),
+        url("../../../../../Downloads/ChatGPT Image Jul 27, 2026, 01_43_07 PM.png")
+        no-repeat center center;
+
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px;
+}
+
+
+/* MAIN CONTAINER */
+
+.registration-container {
+
+    width: 100%;
+    max-width: 1350px;
+
+    display: flex;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    background: #ffffff;
+}
+
+
+/* LEFT */
+
+.registration-left {
+
+    width: 45%;
+
+    padding: 45px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 52, 105, 0.96),
+            rgba(0, 104, 170, 0.90)
+        );
+
+    position: relative;
+}
+
+
+/* BRAND */
+
+.brand {
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.brand img {
+
+    width: 70px;
+    height: 70px;
+
+    object-fit: contain;
+}
+
+
+.brand h2 {
+
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+
+.brand p {
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    opacity: 0.9;
+}
+
+
+/* WELCOME */
+
+.welcome-section {
+
+    margin-top: 90px;
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+.welcome-section h1 {
+
+    margin-top: 25px;
+
+    font-size: 48px;
+
+    line-height: 1.15;
+}
+
+
+.welcome-section h1 span {
+
+    color: #64d8ff;
+}
+
+
+.welcome-section > p {
+
+    margin-top: 20px;
+
+    max-width: 480px;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    color: rgba(255,255,255,0.88);
+}
+
+
+/* FEATURES */
+
+.features {
+
+    margin-top: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.icon {
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255,255,255,0.15);
+
+    font-size: 22px;
+}
+
+
+.feature h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 3px;
+}
+
+
+.feature p {
+
+    font-size: 12px;
+
+    opacity: 0.75;
+}
+
+
+/* RIGHT */
+
+.registration-right {
+
+    width: 55%;
+
+    padding: 45px 50px;
+
+    background: #ffffff;
+}
+
+
+/* HEADER */
+
+.form-header {
+
+    margin-bottom: 30px;
+}
+
+
+.form-header h2 {
+
+    font-size: 32px;
+
+    color: #003366;
+}
+
+
+.form-header p {
+
+    margin-top: 7px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* FORM ROW */
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+/* INPUT GROUP */
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.input-group label {
+
+    margin-bottom: 8px;
+
+    color: #333;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+.input-group input,
+.input-group select {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    background: #fafafa;
+
+    transition: 0.3s;
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+
+    border-color: #0077ff;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(0,119,255,0.08);
+}
+
+
+/* TERMS */
+
+.terms {
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+
+    color: #666;
+}
+
+
+.terms label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+
+.terms input {
+
+    width: 15px;
+    height: 15px;
+}
+
+
+.terms span {
+
+    color: #0056b3;
+
+    font-weight: 500;
+}
+
+
+/* BUTTON */
+
+.register-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0056b3,
+            #0077ff
+        );
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.register-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,86,179,0.30);
+}
+
+
+/* LOGIN LINK */
+
+.login-link {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+.login-link a {
+
+    color: #0056b3;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    margin-left: 5px;
+}
+
+
+.login-link a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+
+    .registration-container {
+
+        flex-direction: column;
+    }
+
+    .registration-left,
+    .registration-right {
+
+        width: 100%;
+    }
+
+    .registration-left {
+
+        padding: 35px;
+    }
+
+    .welcome-section {
+
+        margin-top: 45px;
+    }
+
+}
+
+
+@media(max-width: 650px) {
+
+    body {
+
+        padding: 15px;
+    }
+
+    .registration-left,
+    .registration-right {
+
+        padding: 30px 25px;
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-section h1 {
+
+        font-size: 36px;
+    }
+
+    .brand {
+
+        align-items: flex-start;
+    }
+
+}
