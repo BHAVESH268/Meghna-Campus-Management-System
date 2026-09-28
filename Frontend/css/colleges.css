@@ -1,4 +1,4 @@
-:root {
+﻿:root {
 
     --bg: #F2F1F0;
     --text: #2b3033;
@@ -3859,7 +3859,7 @@ body {
     position:fixed;
     inset:0;
     z-index:-2;
-    background:url("file:///C:/Users/HP/Downloads/ChatGPT%20Image%20Jul%2027,%202026,%2001_43_07%20PM.png") no-repeat center center;
+    background:url("../images/ChatGPT%20Image%20Jul%2027,%202026,%2001_43_07%20PM.png") no-repeat center center;
     background-size:cover;
 }
 
@@ -4112,3 +4112,6 @@ body {
         height:42px;
     }
 }
+
+
+

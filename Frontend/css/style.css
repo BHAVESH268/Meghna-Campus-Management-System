@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    SVET SMART CAMPUS MANAGEMENT SYSTEM
    COMMON WEBSITE CSS
    Accent: #15BCDF
@@ -278,7 +278,7 @@ button {
             rgba(10, 65, 86, 0.78),
             rgba(21, 188, 223, 0.38)
         ),
-        url("file:///C:/Users/HP/Downloads/SVET%20logo.jpeg") center/cover no-repeat;
+        url("../html/images/SVET%20logo.jpeg") center/cover no-repeat;
 
     overflow: hidden;
 }

@@ -1,4 +1,4 @@
-/* ===== Google Font ===== */
+﻿/* ===== Google Font ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
@@ -8,17 +8,11 @@
     font-family:'Poppins',sans-serif;
 }
 
-body{
-    min-height:100vh;
-    background:url("../../../../../Downloads/ChatGPT Image Jul 27, 2026, 01_43_07 PM.png") no-repeat center center;
-    background-size:cover;
-    background-attachment:fixed;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
+body {
+    background: url("../html/images/login-background.avif") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 /* Light Overlay */
@@ -242,4 +236,20 @@ button:hover{
     font-size:40px;
 }
 
+}
+
+
+
+
+
+
+
+
+
+/* ===== SAME COLLEGE BACKGROUND ===== */
+body {
+    background: url("../html/images/login-background.png") no-repeat center center !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
 }
