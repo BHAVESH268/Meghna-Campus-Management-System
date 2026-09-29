@@ -383,7 +383,7 @@ async function sendMessage(customMessage = null) {
 
         const response =
             await fetch(
-                "http://127.0.0.1:5000/chat",
+                "https://meghna-campus-management-system-1.onrender.com/chat",
                 {
                     method: "POST",
 
@@ -1058,4 +1058,5 @@ attachQuickButtons();
 console.log(
     "✅ SVKPI AI Advanced Frontend Loaded"
 );
+
 

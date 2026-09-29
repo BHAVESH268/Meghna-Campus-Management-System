@@ -90,7 +90,7 @@ async function sendSvkpiAiMessage() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:5000/chat", {
+        const response = await fetch("https://meghna-campus-management-system-1.onrender.com/chat", {
 
             method: "POST",
 
@@ -157,3 +157,4 @@ svkpiAiInput.addEventListener(
 
     }
 );
+

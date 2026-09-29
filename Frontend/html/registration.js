@@ -67,7 +67,7 @@ registrationForm.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/register",
+            "https://meghna-campus-management-system-1.onrender.com/register",
             {
                 method: "POST",
 
