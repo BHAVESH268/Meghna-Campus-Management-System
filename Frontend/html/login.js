@@ -13,7 +13,7 @@ if (loginForm) {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
 
-        if (loginType === "Select Login Type") {
+        if (!loginType) {
             alert("Please select Login Type.");
             return;
         }
@@ -23,8 +23,8 @@ if (loginForm) {
             return;
         }
 
-        if (loginType !== "Student") {
-            alert("Student Login is currently available.");
+        if (loginType !== "student") {
+            alert("Only Student Login is currently available.");
             return;
         }
 
@@ -48,18 +48,18 @@ if (loginForm) {
 
             const result = await response.json();
 
-           if (result.success) {
+            if (result.success) {
 
-    sessionStorage.setItem(
-        "loggedInStudent",
-        JSON.stringify(result.student)
-    );
+                sessionStorage.setItem(
+                    "loggedInStudent",
+                    JSON.stringify(result.student)
+                );
 
-    alert("✅ Login Successful!\n\nWelcome to SVKPI Campus Portal.");
+                alert("✅ Login Successful!\n\nWelcome to SVKPI Campus Portal.");
 
-    window.location.href = "student-dashboard.html";
+                window.location.href = "student-dashboard.html";
 
-} else {
+            } else {
 
                 alert(
                     "❌ Login Failed\n\n" +
