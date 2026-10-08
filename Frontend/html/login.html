@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVET[SWAMI VIVEKANAND EDUCATION TRUST] - Login</title>
 
+    <title>SVET [SWAMI VIVEKANAND EDUCATION TRUST] - Login</title>
+
+    <!-- Login CSS -->
     <link rel="stylesheet" href="../css/login.css">
 
-    href="../css/style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
     <div class="container">
 
+        <!-- LOGIN SECTION -->
         <div class="login-box">
 
+            <!-- LEFT SIDE -->
             <div class="left">
 
                 <nav class="navbar">
 
-                    <img src="images/svkpie-logo.png" class="logo">
+                    <img
+                        src="images/svkpie-logo.png"
+                        class="logo"
+                        alt="SVKPIE Logo"
+                    >
 
                     <div class="college-name">
 
@@ -41,6 +51,7 @@
             </div>
 
 
+            <!-- RIGHT SIDE -->
             <div class="right">
 
                 <h2>Welcome Back</h2>
@@ -49,54 +60,74 @@
 
                 <form>
 
-                    <select>
+                    <!-- Login Type -->
+                    <select required>
 
-                        <option>Select Login Type</option>
+                        <option value="" selected disabled>
+                            Select Login Type
+                        </option>
 
-                        <option>Student</option>
+                        <option value="student">
+                            Student
+                        </option>
 
-                        <option>Faculty</option>
+                        <option value="faculty">
+                            Faculty
+                        </option>
 
-                        <option>Admin</option>
+                        <option value="admin">
+                            Admin
+                        </option>
 
                     </select>
 
 
+                    <!-- Email -->
                     <div class="input-box">
 
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa-solid fa-envelope"></i>
 
                         <input
                             type="email"
                             placeholder="Enter Email"
+                            required
                         >
 
                     </div>
 
 
+                    <!-- Password -->
                     <div class="input-box">
 
-                        <i class="fa fa-lock"></i>
+                        <i class="fa-solid fa-lock"></i>
 
                         <input
                             type="password"
                             placeholder="Enter Password"
+                            required
                         >
 
                     </div>
 
 
-                    <button>Login</button>
+                    <!-- Login Button -->
+                    <button type="submit">
+                        Login
+                    </button>
 
                 </form>
 
-                <a href="#">Forgot Password?</a>
+
+                <a href="#">
+                    Forgot Password?
+                </a>
 
             </div>
 
         </div>
 
 
+        <!-- QUICK ACCESS -->
         <div class="quick-access">
 
             <h3>Quick Access</h3>
@@ -104,13 +135,16 @@
             <div class="quick-cards">
 
 
+                <!-- AI CHATBOT -->
                 <div class="quick-card">
 
                     <i class="fa-solid fa-robot"></i>
 
                     <h4>AI Chatbot</h4>
 
-                    <p>Ask AI for instant help.</p>
+                    <p>
+                        Ask AI for instant help.
+                    </p>
 
                     <a
                         href="../../frontendai/chatbot.html"
@@ -122,13 +156,16 @@
                 </div>
 
 
+                <!-- RESULTS -->
                 <div class="quick-card">
 
                     <i class="fa-solid fa-graduation-cap"></i>
 
                     <h4>Results</h4>
 
-                    <p>Check Semester Results.</p>
+                    <p>
+                        Check Semester Results.
+                    </p>
 
                     <a
                         href="https://www.student.gtu.ac.in/"
@@ -140,13 +177,16 @@
                 </div>
 
 
+                <!-- NOTICE BOARD -->
                 <div class="quick-card">
 
                     <i class="fa-solid fa-bullhorn"></i>
 
                     <h4>Notice Board</h4>
 
-                    <p>Latest College Notices.</p>
+                    <p>
+                        Latest College Notices.
+                    </p>
 
                     <a
                         href="../html1/notice.html"
@@ -170,9 +210,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
